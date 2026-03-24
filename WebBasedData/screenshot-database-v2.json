@@ -1,8 +1,8 @@
 {
     "package_count": {
-        "total": 12449,
-        "done": 5962,
-        "packages_with_icon": 5962,
+        "total": 12461,
+        "done": 5978,
+        "packages_with_icon": 5978,
         "packages_with_screenshot": 1374,
         "total_screenshots": 4246
     },
@@ -115,7 +115,7 @@
             "icon": "https://i.postimg.cc/k4w2mzVS/98217212.png",
             "images": [
                 "https://i.postimg.cc/Vv6dLgMV/top10-domain.png",
-                "https://i.postimg.cc/nrPMsmGc/top10-title.png\n"
+                "https://i.postimg.cc/nrPMsmGc/top10-title.png"
             ]
         },
         "1password": {
@@ -216,7 +216,7 @@
         "3dmark": {
             "icon": "https://i.ibb.co/zrwxXrq/download.png",
             "images": [
-                "http://cooltown2.hattara.fuma.fi/static/images/screenshots/ul-procyon-ai-inference-windows-result-part-1.png"
+                "https://cooltown2.hattara.fuma.fi/static/images/screenshots/ul-procyon-ai-inference-windows-result-part-1.png"
             ]
         },
         "3dxware-10": {
@@ -269,21 +269,21 @@
             ]
         },
         "4kstogram": {
-            "icon": "http://static.4kdownload.com/main/img/logo/stogram-256.732811102182.png",
+            "icon": "https://static.4kdownload.com/main/img/logo/stogram-256.732811102182.png",
             "images": [
                 "https://static.4kdownload.com/main/img/redesign/product-screenshots/cards/new-cards/stogram-card@1x.png",
                 "https://static.4kdownload.com/main/img/redesign-v2/products-page/stogram/download@1x.png"
             ]
         },
         "4ktokkit": {
-            "icon": "http://static.4kdownload.com/main/img/logo/tokkit-512.c09c7b19c607.png",
+            "icon": "https://static.4kdownload.com/main/img/logo/tokkit-512.c09c7b19c607.png",
             "images": [
                 "https://static.4kdownload.com/main/img/redesign/product-screenshots/cards/new-cards/tokkit-card@1x.png",
                 "https://static.4kdownload.com/main/img/redesign-v2/products-page/tokkit/download-tiktok-hashtag.07a06cb13a1b.png"
             ]
         },
         "4kvideodownloader": {
-            "icon": "http://static.4kdownload.com/main/img/logo/videodownloader-512.7395df698c5e.png",
+            "icon": "https://static.4kdownload.com/main/img/logo/videodownloader-512.7395df698c5e.png",
             "images": [
                 "https://static.4kdownload.com/main/img/redesign/product-screenshots/cards/new-cards/videodownloader-card@1x.png",
                 "https://static.4kdownload.com/main/img/redesign/product-screenshots/windows/videodownloader/playlist.png"
@@ -509,8 +509,8 @@
         "abiword": {
             "icon": "https://i.imgur.com/qnBf8D1.png",
             "images": [
-                "http://www.abisource.com/screenshots/abi-win32.thumb.jpg",
-                "http://www.abisource.com/screenshots/abi-yiddish.thumb.jpg"
+                "https://www.abisource.com/screenshots/abi-win32.thumb.jpg",
+                "https://www.abisource.com/screenshots/abi-yiddish.thumb.jpg"
             ]
         },
         "abricotine": {
@@ -1085,7 +1085,7 @@
             "icon": "https://www.irchelp.org/clients/windows/adiirc_logo_256p.png",
             "images": [
                 "https://www.adiirc.com/images/xss.png.pagespeed.ic.goVp15eGFq.png",
-                "http://i.imgur.com/R7PYXze.png",
+                "https://i.imgur.com/R7PYXze.png",
                 "https://www.irchelp.org/clients/windows/adiirc_screenshot_hackergreen.png",
                 "https://dev.adiirc.com/attachments/download/790/Monitoring_Panels_02.gif"
             ]
@@ -1814,7 +1814,7 @@
             "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/CD_icon_test.svg/1024px-CD_icon_test.svg.png",
             "images": [
                 "https://www.snapfiles.com/screenfiles/aadownloader.png",
-                "http://freewaregenius.com/wp-content/uploads/2008/06/album-art-downloader-screenshot3.jpg",
+                "https://freewaregenius.com/wp-content/uploads/2008/06/album-art-downloader-screenshot3.jpg",
                 "https://www.chip.de/ii/5/8/4/1/1/0/9/eaf373a13b0756b4.jpg",
                 "https://www.snapfiles.com/screenfiles/aadownloader2.png"
             ]
@@ -1842,11 +1842,11 @@
             "images": []
         },
         "algodoo": {
-            "icon": "http://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_logo_algoryx_web.png",
+            "icon": "https://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_logo_algoryx_web.png",
             "images": [
-                "http://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_for_education_pyramid-300x187.png",
-                "http://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_for_education_start-300x187.png",
-                "http://www.algodoo.com/mainpage/wp-content/uploads/2013/03/800px-New_algodoo.png"
+                "https://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_for_education_pyramid-300x187.png",
+                "https://www.algodoo.com/mainpage/wp-content/uploads/2013/03/algodoo_for_education_start-300x187.png",
+                "https://www.algodoo.com/mainpage/wp-content/uploads/2013/03/800px-New_algodoo.png"
             ]
         },
         "aliae": {
@@ -2254,7 +2254,7 @@
             ]
         },
         "androidstudio-canary": {
-            "icon": "http://i.imgur.com/GAcvIsP.png",
+            "icon": "https://i.imgur.com/GAcvIsP.png",
             "images": [
                 "https://i.imgur.com/YjOIZFc.jpg",
                 "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC2X0sIY_AGvgi6jD8Eh_u8rOdZXKA6PP18tnJdA6jQxR-n4bF6vsIVI2D4FTOnHAlqSY5hJShEjHcRQr7P8QM-YyP3sM3Su_KxFRdBXhg8WUIoXr74luWfFvtgYGJHWdDe_gPnwpCsLR4YhE0U88QcSqrYs3LLjp7dGqQul_pRoerJr__-mD8lUPA/s1600/Android-IO22AndroidDevRecap_Social.png",
@@ -3102,7 +3102,7 @@
         "arma3sync": {
             "icon": "https://i.imgur.com/WxxNlan.png",
             "images": [
-                "http://i.imgur.com/Pq8nK5T.png",
+                "https://i.imgur.com/Pq8nK5T.png",
                 "https://wiki.tacticalteam.de/technik/armasync/armasync_repository_checkupdates.png",
                 "https://wiki.tacticalteam.de/technik/armasync/armasync_verzeichnis-repoauswahl.png",
                 "https://sasclan.org/sites/default/files/public/images/downloading-a3-modset-a3sync-3.png"
@@ -3371,7 +3371,7 @@
             "images": []
         },
         "astrogrep": {
-            "icon": "http://astrogrep.sourceforge.net/pics/AstroGrep_256x256.png",
+            "icon": "https://astrogrep.sourceforge.net/pics/AstroGrep_256x256.png",
             "images": [
                 "https://a.fsdn.com/con/app/proj/astrogrep/screenshots/ss_main_new.png",
                 "https://www.portablefreeware.com/screenshots/scrLEgvyw.png",
@@ -3631,6 +3631,10 @@
             "icon": "https://community.chocolatey.org/content/packageimages/authy-desktop.2.2.3.png",
             "images": []
         },
+        "auth-desktop": {
+            "icon": "https://raw.githubusercontent.com/ente-io/ente/refs/heads/main/mobile/apps/auth/assets/icons/auth-icon.png",
+            "images": []
+        },
         "autoactions": {
             "icon": "",
             "images": []
@@ -3745,7 +3749,7 @@
         "autopsy": {
             "icon": "https://i.imgur.com/MNqvAXk.png",
             "images": [
-                "http://sleuthkit.org/autopsy/docs/user-docs/4.15.0/portable_case_original_version.png",
+                "https://sleuthkit.org/autopsy/docs/user-docs/4.15.0/portable_case_original_version.png",
                 "https://media.geeksforgeeks.org/wp-content/uploads/20200830111540/Screenshot8.png"
             ]
         },
@@ -3841,14 +3845,14 @@
             "images": []
         },
         "avisynth": {
-            "icon": "http://www.avisynth.org/images/avisynth-logo-gears-mod.png",
+            "icon": "https://www.avisynth.org/images/avisynth-logo-gears-mod.png",
             "images": [
                 "https://www.svp-team.com/w/images/3/3c/Mpchc-avsf.png",
                 "https://imag.malavida.com/mvimgbig/download-fs/avisynth-11914-1.jpg"
             ]
         },
         "avisynthplus": {
-            "icon": "http://www.avisynth.org/images/avisynth-logo-gears-mod.png",
+            "icon": "https://www.avisynth.org/images/avisynth-logo-gears-mod.png",
             "images": [
                 "https://www.svp-team.com/w/images/3/3c/Mpchc-avsf.png",
                 "https://imag.malavida.com/mvimgbig/download-fs/avisynth-11914-1.jpg"
@@ -3886,7 +3890,7 @@
             "icon": "https://okkhor52.com/img/designer/001.png",
             "images": [
                 "https://www.omicronlab.com/assets/images/landing/avro_600x337.jpg",
-                "http://linux.omicronlab.com/images/screenshot.png",
+                "https://linux.omicronlab.com/images/screenshot.png",
                 "https://imag.malavida.com/mvimgbig/download-fs/avro-keyboard-22346-1.jpg"
             ]
         },
@@ -4660,7 +4664,7 @@
             ]
         },
         "batchimageconverter": {
-            "icon": "https://vovsoft.com/icons128/batch-image-converter.png",
+            "icon": "https://i2.wp.com/filecr.com/wp-content/uploads/2022/04/batch-image-converter-logo.png",
             "images": [
                 "https://vovsoft.com/screenshots/batch-image-converter.png"
             ]
@@ -4813,12 +4817,12 @@
             ]
         },
         "battlepainters": {
-            "icon": "http://www.saitogames.com/_images/painters_logo.gif",
+            "icon": "https://www.saitogames.com/_images/painters_logo.gif",
             "images": [
-                "http://www.saitogames.com/_images/painters_screen01.gif",
-                "http://www.saitogames.com/_images/painters_screen02.gif",
-                "http://www.saitogames.com/_images/painters_screen03.gif",
-                "http://www.saitogames.com/_images/painters_screen04.gif"
+                "https://www.saitogames.com/_images/painters_screen01.gif",
+                "https://www.saitogames.com/_images/painters_screen02.gif",
+                "https://www.saitogames.com/_images/painters_screen03.gif",
+                "https://www.saitogames.com/_images/painters_screen04.gif"
             ]
         },
         "battoexeconverter": {
@@ -11789,6 +11793,10 @@
             "icon": "https://raw.githubusercontent.com/dotnetcore-chocolatey/dotnetcore-chocolateypackages/master/icons/dotnetcore.png",
             "images": []
         },
+        "dotnet-desktopruntime-10": {
+            "icon": "https://i.ibb.co/sdzNm4Dp/image.png",
+            "images": []
+        },
         "dotnet-desktopruntime-3_1": {
             "icon": "https://raw.githubusercontent.com/dotnetcore-chocolatey/dotnetcore-chocolateypackages/master/icons/dotnetcore.png",
             "images": []
@@ -11806,11 +11814,11 @@
             "images": []
         },
         "dotnet-desktopruntime-8": {
-            "icon": "https://raw.githubusercontent.com/dotnetcore-chocolatey/dotnetcore-chocolateypackages/master/icons/dotnetcore.png",
+            "icon": "https://i.ibb.co/sdzNm4Dp/image.png",
             "images": []
         },
         "dotnet-desktopruntime-9": {
-            "icon": "https://raw.githubusercontent.com/dotnetcore-chocolatey/dotnetcore-chocolateypackages/master/icons/dotnetcore.png",
+            "icon": "https://i.ibb.co/sdzNm4Dp/image.png",
             "images": []
         },
         "dotnet-desktopruntime-pr\u2026": {
@@ -15497,13 +15505,13 @@
             "images": []
         },
         "fontviewok": {
-            "icon": "https://i.postimg.cc/5NSK9JZ4/Font-View-OK-ico.png\n",
+            "icon": "https://i.postimg.cc/5NSK9JZ4/Font-View-OK-ico.png",
             "images": [
                 "https://i.postimg.cc/SNf1Q4wx/Font-View-OK.png"
             ]
         },
         "foobar2000": {
-            "icon": "https://i.postimg.cc/3NV8dpy4/foobar2000-ico.png\n",
+            "icon": "https://i.postimg.cc/3NV8dpy4/foobar2000-ico.png",
             "images": [
                 "https://i.postimg.cc/PJ9XPZLC/foobar2000-1.png",
                 "https://i.postimg.cc/0jFkbm6d/foobar2000-3.png",
@@ -16106,7 +16114,7 @@
             "images": []
         },
         "fxsound": {
-            "icon": "",
+            "icon": "https://i.ibb.co/0Rx00jW6/image.png",
             "images": []
         },
         "fysty": {
@@ -16573,10 +16581,6 @@
             "images": []
         },
         "getter1": {
-            "icon": "",
-            "images": []
-        },
-        "gettext": {
             "icon": "",
             "images": []
         },
@@ -26263,7 +26267,7 @@
                 "https://i.postimg.cc/TPMfctVN/mkvtoolnix-gui-official-screenshot.png"
             ]
         },
-        "mlocati-gettext": {
+        "Winget.mlocati.GetText": {
             "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/960px-Heckert_GNU_white.svg.png",
             "images": [
                 "https://i.imgur.com/KnVZQsT.png"
@@ -29474,7 +29478,7 @@
         "obs-amd-encoder": {
             "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/OBS_Studio_Logo.svg/768px-OBS_Studio_Logo.svg.png",
             "images": [
-                "http://i.imgur.com/Fferqsd.png"
+                "https://i.imgur.com/Fferqsd.png"
             ]
         },
         "obs-asio": {
@@ -30573,7 +30577,7 @@
             "images": []
         },
         "optionsplus": {
-            "icon": "http://www.logitech.com/assets/66208/optionsplusicon.png",
+            "icon": "https://www.logitech.com/assets/66208/optionsplusicon.png",
             "images": []
         },
         "optipng": {
@@ -31735,7 +31739,7 @@
             "images": []
         },
         "peazip": {
-            "icon": "https://www.iconarchive.com/download/i106134/papirus-team/papirus-apps/peazip.512.png",
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Peazip_ico.svg/256px-Peazip_ico.svg.png",
             "images": [
                 "https://i.postimg.cc/Qxybz51V/image.png",
                 "https://i.postimg.cc/DyXJ2bRS/image.png",
@@ -39575,7 +39579,7 @@
             "icon": "https://community.chocolatey.org/content/packageimages/sonicvisualiser.4.5.1.png",
             "images": []
         },
-        "sonicwall-netextender\n": {
+        "sonicwall-netextender": {
             "icon": "https://paulstsmith.github.io/images/netextender-icon.png",
             "images": [
                 "https://paulstsmith.github.io/images/netextender-screenshot-connected.png",
@@ -41593,10 +41597,10 @@
         "switchoff": {
             "icon": "https://www.softwarecrew.com/wp-content/uploads/2013/03/AiryTecSwitchOffLogo200-175.png",
             "images": [
-                "http://www.airytec.com/images/en/screenshots/schedule.png",
-                "http://www.airytec.com/images/en/screenshots/one-click.png",
-                "http://www.airytec.com/images/en/screenshots/web-interface.png",
-                "http://www.airytec.com/images/en/screenshots/notifyicon.png"
+                "https://www.airytec.com/images/en/screenshots/schedule.png",
+                "https://www.airytec.com/images/en/screenshots/one-click.png",
+                "https://www.airytec.com/images/en/screenshots/web-interface.png",
+                "https://www.airytec.com/images/en/screenshots/notifyicon.png"
             ]
         },
         "swmm": {
@@ -41983,7 +41987,7 @@
             "images": []
         },
         "tailscale": {
-            "icon": "https://community.chocolatey.org/content/packageimages/tailscale.1.62.1.png",
+            "icon": "https://tailscale.com/favicon.png",
             "images": []
         },
         "tailwindcss": {
@@ -44576,7 +44580,7 @@
             "images": []
         },
         "unchecky": {
-            "icon": "http://unchecky.com/assets/img/fb-unchecky-logo.png",
+            "icon": "https://unchecky.com/assets/img/fb-unchecky-logo.png",
             "images": [
                 "https://rammichael.com/wp-content/uploads/2014/01/unchecky_0_2.png"
             ]
@@ -47001,11 +47005,11 @@
             "images": []
         },
         "vncserver": {
-            "icon": "https://www.pacisoft.vn/wp-content/uploads/2018/10/vnc-viewer-logo.png ",
+            "icon": "https://www.pacisoft.vn/wp-content/uploads/2018/10/vnc-viewer-logo.png",
             "images": []
         },
         "vncviewer": {
-            "icon": "https://www.pacisoft.vn/wp-content/uploads/2018/10/vnc-viewer-logo.png ",
+            "icon": "https://www.pacisoft.vn/wp-content/uploads/2018/10/vnc-viewer-logo.png",
             "images": []
         },
         "vnote": {
@@ -47801,10 +47805,6 @@
             "icon": "",
             "images": []
         },
-        "": {
-            "icon": "",
-            "images": []
-        },
         "vsts-admin-tools": {
             "icon": "https://community.chocolatey.org/content/packageimages/vsts-admin-tools.1.0.12.png",
             "images": []
@@ -48385,7 +48385,7 @@
             ]
         },
         "wechat-work": {
-            "icon": "http://dldir1.qq.com/foxmail/icon/work_logo.png",
+            "icon": "https://dldir1.qq.com/foxmail/icon/work_logo.png",
             "images": []
         },
         "wechatdevtools": {
@@ -48396,7 +48396,7 @@
             ]
         },
         "wecom": {
-            "icon": "http://dldir1.qq.com/foxmail/icon/work_logo.png",
+            "icon": "https://dldir1.qq.com/foxmail/icon/work_logo.png",
             "images": [
                 "https://res.wx.qq.com/wxdoc/dist/assets/img/application2.803df32d.png",
                 "https://wwcdn.weixin.qq.com/node/wework/images/wecom-temp-f9247fc9ed69949f3e3cd39480410738.4145f338c0.png"
@@ -52107,7 +52107,7 @@
                 "https://i.postimg.cc/PrB58zRQ/image.png"
             ]
         },
-        "gs-base\n": {
+        "gs-base": {
             "icon": "https://i.postimg.cc/hvFwcvjg/gsbase.png",
             "images": [
                 "https://i.postimg.cc/NMyqQZk8/image.png",
@@ -52775,7 +52775,7 @@
                 "https://i.postimg.cc/4ydqc4Lk/image.png"
             ]
         },
-        "xmlviewer ": {
+        "xmlviewer": {
             "icon": "https://i.postimg.cc/PxBVCbwZ/xmlv.png",
             "images": [
                 "https://i.postimg.cc/1RGr0Zxb/image.png",
@@ -52813,7 +52813,7 @@
             "icon": "https://i.postimg.cc/MH2CsdkZ/dwgseepro.png",
             "images": []
         },
-        "smbiosexplorer ": {
+        "smbiosexplorer": {
             "icon": "https://i.postimg.cc/SRRMv7c5/smbe.png",
             "images": [
                 "https://i.postimg.cc/tCRS9LzQ/image.png",
@@ -52832,6 +52832,10 @@
                 "https://i.postimg.cc/1Xyfk0wP/image.png"
             ]
         },
+        "wise-registry-cleaner": {
+            "icon": "https://i.ibb.co/VYZ84Rt5/image.png",
+            "images": []
+        },
         "wiseforcedeleter": {
             "icon": "https://i.postimg.cc/T2rt6RM3/image.png",
             "images": [
@@ -52839,7 +52843,7 @@
                 "https://i.postimg.cc/FHBXdwb8/image.png"
             ]
         },
-        "wisejetsearch\n": {
+        "wisejetsearch": {
             "icon": "https://i.postimg.cc/VN2wT2dn/image.png",
             "images": [
                 "https://i.postimg.cc/jqHTggKn/image.png",
@@ -53365,13 +53369,13 @@
                 "https://i.postimg.cc/G25hW8Nx/image.png"
             ]
         },
-        "Winget.SoftPerfect.WiFiGuard\n": {
+        "Winget.SoftPerfect.WiFiGuard": {
             "icon": "https://i.postimg.cc/5Nxbsm6W/image.png",
             "images": [
                 "https://i.postimg.cc/43hgYLFm/image.png"
             ]
         },
-        "Winget.SoftPerfect.NetworkScanner\n": {
+        "Winget.SoftPerfect.NetworkScanner": {
             "icon": "https://i.postimg.cc/brmMCkF7/image.png",
             "images": [
                 "https://i.postimg.cc/Fsn80bS3/image.png",
@@ -53425,7 +53429,7 @@
                 "https://i.postimg.cc/6pFPQ235/image.png"
             ]
         },
-        "hibernateenableordisable\n": {
+        "hibernateenableordisable": {
             "icon": "https://i.postimg.cc/BvrtNgvf/hibernate.png",
             "images": [
                 "https://i.postimg.cc/V6fWsmXp/image.png",
@@ -54992,18 +54996,6 @@
                 "https://i.postimg.cc/5Ncf02Fk/image.png"
             ]
         },
-        "calendartask ": {
-            "icon": "https://i.postimg.cc/qq326gN9/image.png",
-            "images": [
-                "https://i.postimg.cc/sxQ1vSZr/image.png",
-                "https://i.postimg.cc/bwHrDqdw/image.png",
-                "https://i.postimg.cc/XvsvLxfb/image.png",
-                "https://i.postimg.cc/d3ytqYgz/image.png",
-                "https://i.postimg.cc/ry3Jy2DJ/image.png",
-                "https://i.postimg.cc/sgR4SP9J/image.png",
-                "https://i.postimg.cc/nLFKSHWB/image.png"
-            ]
-        },
         "multiping": {
             "icon": "https://i.postimg.cc/fTgJQMkh/multiping-icon.png",
             "images": [
@@ -55012,7 +55004,7 @@
             ]
         },
         "musehub": {
-            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/MuseHub_Logo.svg/512px-MuseHub_Logo.svg.png ",
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/MuseHub_Logo.svg/512px-MuseHub_Logo.svg.png",
             "images": []
         },
         "antigravity": {
@@ -55047,11 +55039,11 @@
             "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Robot-framework-logo.png",
             "images": []
         },
-        "Logitech.LogiTune\n": {
+        "Logitech.LogiTune": {
             "icon": "https://imgs.search.brave.com/ASjRKcLSMy8TMcfmAKV4Hte2F6IJZNgqHnCwlZv_jJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9naXRlY2guY29t/L2Fzc2V0cy82NTY4/Ni8yL2xvZ2ktdHVu/ZS1hcHAucG5n",
             "images": []
         },
-        "  OpenVPNTechnologies.OpenVPN\n": {
+        "OpenVPNTechnologies.OpenVPN": {
             "icon": "https://postimg.cc/2LQGvMgm",
             "images": []
         },
@@ -55090,7 +55082,7 @@
             "icon": "https://i.ibb.co/VWMLqzbN/icon.png",
             "images": [
                 "https://i.ibb.co/XZgvrZDt/s1.png",
-                "https://i.ibb.co/RT4Qpvpj/s2.png ",
+                "https://i.ibb.co/RT4Qpvpj/s2.png",
                 "https://i.ibb.co/S40DxfM4/s3.png"
             ]
         },
@@ -55099,7 +55091,7 @@
             "images": []
         },
         "setuptools": {
-            "icon": "https://imgur.com/a/E92OhoW",
+            "icon": "https://i.ibb.co/67ZyXb6J/logo-over-white.png",
             "images": []
         },
         "requests": {
@@ -55179,14 +55171,14 @@
             ]
         },
         "click": {
-            "icon": "https://postimg.cc/21WxJpxY",
+            "icon": "https://i.ibb.co/9H19kg1F/click-logo-1.png",
             "images": []
         },
         "lin-ycv.EverythingCmdPal3": {
             "icon": "https://store-images.s-microsoft.com/image/apps.25263.13565088367537471.1afd4527-e5f2-4286-ae89-167b4ff891b1.6b1f6c28-e687-4873-982a-ddf8c246ba6e?h=115",
             "images": []
         },
-        "Python.Launcher\n": {
+        "Python.Launcher": {
             "icon": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png",
             "images": []
         },
@@ -55249,6 +55241,46 @@
         },
         "pydantic_core": {
             "icon": "https://opensource.muenchen.de/logo/pydantic.png",
+            "images": []
+        },
+        "winget-cli": {
+            "icon": "https://postimg.cc/LqxRtqj8",
+            "images": []
+        },
+        "dotnetfx": {
+            "icon": "https://community.chocolatey.org/content/packageimages/netfx-4.7.2.4.7.2.0.png",
+            "images": []
+        },
+        "dotnetcore": {
+            "icon": "https://community.chocolatey.org/content/packageimages/dotnetcore.3.1.32.png",
+            "images": []
+        },
+        "KB2919442": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
+            "images": []
+        },
+        "KB2919355": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
+            "images": []
+        },
+        "KB3033929": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
+            "images": []
+        },
+        "KB3035131": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
+            "images": []
+        },
+        "KB3063858": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
+            "images": []
+        },
+        "microsoft-ui-xaml-2-7": {
+            "icon": "https://community.chocolatey.org/content/packageimages/microsoft-ui-xaml-2-7.2.7.3.png",
+            "images": []
+        },
+        "microsoft-vclibs-140-00": {
+            "icon": "https://community.chocolatey.org/content/packageimages/KB2919442.1.0.20160915.png",
             "images": []
         }
     }
