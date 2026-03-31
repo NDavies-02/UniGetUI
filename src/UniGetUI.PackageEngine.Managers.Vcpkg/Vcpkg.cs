@@ -549,12 +549,11 @@ namespace UniGetUI.PackageEngine.Managers.VcpkgManager
 
                 foreach (string tripletFile in tripletFiles)
                 {
-                    string triplet = Path.GetFileNameWithoutExtension(tripletFile);
-                    Triplets.Add(triplet);
+                    Triplets.Add(Path.GetFileNameWithoutExtension(tripletFile));
                 }
             }
 
-            return Triplets;
+            return Triplets.Distinct().ToList();
         }
     }
 }
