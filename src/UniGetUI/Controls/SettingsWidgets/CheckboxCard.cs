@@ -39,7 +39,13 @@ namespace UniGetUI.Interface.Widgets
 
         public string Text
         {
-            set => _textblock.Text = CoreTools.Translate(value);
+            set
+            {
+                _textblock.Text = CoreTools.Translate(value);
+                Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(this, _textblock.Text);
+                Microsoft.UI.Xaml.Automation.AutomationProperties.SetLocalizedControlType(this, "grouping");
+                Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(_checkbox, _textblock.Text);
+            }
         }
 
         public string WarningText
@@ -95,6 +101,12 @@ namespace UniGetUI.Interface.Widgets
 
             _checkbox.HorizontalAlignment = HorizontalAlignment.Stretch;
             _checkbox.Toggled += _checkbox_Toggled;
+
+            Loaded += (s, e) =>
+            {
+                Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(this, _textblock.Text);
+                Microsoft.UI.Xaml.Automation.AutomationProperties.SetLocalizedControlType(this, "grouping");
+            };
         }
 
         protected virtual void _checkbox_Toggled(object sender, RoutedEventArgs e)
