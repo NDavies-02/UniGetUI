@@ -361,7 +361,7 @@ namespace UniGetUI.PackageEngine.Operations
                 + Package.Id
                 + " with Manager="
                 + Package.Manager.Name
-                + "\nInstallation options: "
+                + "\nUpdate options: "
                 + Options.ToString()
                 + "\nOverriden options: "
                 + Package.OverridenOptions.ToString()
@@ -433,7 +433,7 @@ namespace UniGetUI.PackageEngine.Operations
                 + Package.Id
                 + " with Manager="
                 + Package.Manager.Name
-                + "\nInstallation options: "
+                + "\nUninstall options: "
                 + Options.ToString()
                 + "\nOverriden options: "
                 + Package.OverridenOptions.ToString();
