@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build Unsigned/Untested
 
 on:
   workflow_dispatch:
