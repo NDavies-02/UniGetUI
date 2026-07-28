@@ -1,15 +1,1 @@
 blank_issues_enabled: false
-
-contact_links:
-  - name: 📦 ISSUES INSTALLING/UPDATING A PACKAGE
-    url: https://marticliment.com/unigetui/help/issues-with-packages
-    about: PLEASE READ THIS BEFORE CREATING AN ISSUE RELATED TO A SPECIFIC PACKAGE
-  - name: 🔒 Security issue or vulnerability
-    url: https://whitehub.net/programs/unigetui/
-    about: Found a security issue? Please report it via our disclosure program
-  - name: 📧 Contact me privately by email
-    url: https://marticliment.com/contact
-    about: Please use only if the issue (for example, a vulnerability) cannot be posted publicly
-  - name: 💬 Having doubts or questions?
-    url: https://github.com/Devolutions/UniGetUI/discussions/new/choose
-    about: Create a discussion and get help from other members of the community
