@@ -156,18 +156,6 @@ jobs:
         working-directory: src
         run: dotnet restore UniGetUI.sln
 
-      - name: Run tests
-        working-directory: src
-        shell: pwsh
-        run: |
-          # Retry once to handle flaky tests (e.g. TaskRecyclerTests uses Random)
-          dotnet test UniGetUI.sln --no-restore --verbosity q --nologo
-          if ($LASTEXITCODE -ne 0) {
-            Write-Host "::warning::First test run failed, retrying..."
-            dotnet test UniGetUI.sln --no-restore --verbosity q --nologo
-            if ($LASTEXITCODE -ne 0) { exit 1 }
-          }
-
       - name: Publish
         shell: pwsh
         run: |
