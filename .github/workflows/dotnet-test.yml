@@ -34,17 +34,17 @@ jobs:
 
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         fetch-depth: 0
 
     - name: Install .NET SDK
-      uses: actions/setup-dotnet@v5
+      uses: actions/setup-dotnet@v6
       with:
         global-json-file: global.json
 
     - name: Cache NuGet packages
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: ${{ env.NUGET_PACKAGES }}
         key: ${{ runner.os }}-nuget-${{ hashFiles('global.json', 'src/**/*.csproj', 'src/**/*.props', 'src/**/*.targets', 'src/**/*.sln') }}
@@ -53,7 +53,7 @@ jobs:
 
     - name: Restore WinGet CLI cache
       id: winget-cache
-      uses: actions/cache/restore@v5
+      uses: actions/cache/restore@v6
       with:
         path: src/UniGetUI.PackageEngine.Managers.WinGet/winget-cli_x64
         key: winget-cli-${{ runner.os }}-x64-${{ hashFiles('scripts/fetch-winget-cli.ps1') }}
@@ -68,7 +68,7 @@ jobs:
 
     - name: Save WinGet CLI cache
       if: steps.winget-cache.outputs.cache-hit != 'true'
-      uses: actions/cache/save@v5
+      uses: actions/cache/save@v6
       with:
         path: src/UniGetUI.PackageEngine.Managers.WinGet/winget-cli_x64
         key: ${{ steps.winget-cache.outputs.cache-primary-key }}
