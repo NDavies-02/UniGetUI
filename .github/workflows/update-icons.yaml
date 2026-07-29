@@ -1,8 +1,10 @@
 name: Retrieve latest icons from excel file
+permissions:
+  contents: read
+  actions: write
+  artifact_metadata: write
 
 on:
-  schedule:
-    - cron: 0 0 */4 * *
   workflow_dispatch:
 
 jobs:

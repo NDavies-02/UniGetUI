@@ -1,29 +1,9 @@
 name: .NET Tests
+permissions:
+  contents: read
+  actions: write
+  artifact_metadata: write
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - 'global.json'
-      - '**.cs'
-      - '**.csproj'
-      - '**.props'
-      - '**.targets'
-      - '**.sln'
-      - 'src/.editorconfig'
-      - '.github/workflows/dotnet-test.yml'
-
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'global.json'
-      - '**.cs'
-      - '**.csproj'
-      - '**.props'
-      - '**.targets'
-      - '**.sln'
-      - 'src/.editorconfig'
-      - '.github/workflows/dotnet-test.yml'
-
   workflow_dispatch:
 
 jobs:
