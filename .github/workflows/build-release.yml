@@ -2,7 +2,6 @@ name: Build, Sign, and Release
 permissions:
   contents: read
   actions: write
-  artifact_metadata: write
 on:
   workflow_dispatch:
     inputs:
