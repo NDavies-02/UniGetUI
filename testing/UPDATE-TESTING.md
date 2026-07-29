@@ -1,6 +1,6 @@
 # UniGetUI Auto-Update Testing Guide (productinfo.json path)
 
-This guide validates the new default auto-update flow that reads from `productinfo.json`.
+This guide validates the new default auto-update flow that reads from `productinfo.json`. THIS HAS BEEN REMOVED FROM THIS FORK.
 
 If `productinfo.json` lookup fails for any reason, UniGetUI now falls back to the legacy updater logic that uses the existing version endpoint and GitHub release download URL.
 
