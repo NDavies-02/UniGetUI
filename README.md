@@ -1,12 +1,12 @@
 ## WinGetUI/UniGetUI
 
-UniGetUI is an intuitive GUI for the most common CLI package managers on Windows 10 and 11, including [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/), [Scoop](https://scoop.sh/), [Chocolatey](https://chocolatey.org/), [Pip](https://pypi.org/), [Npm](https://www.npmjs.com/), [.NET Tool](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install), [PowerShell Gallery](https://www.powershellgallery.com/), and more.
-With UniGetUI, you can discover, install, update, and uninstall software from multiple package managers through one interface.
+`UniGetUI` is an intuitive GUI for the most common CLI package managers on Windows 10 and 11, including [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/), [Scoop](https://scoop.sh/), [Chocolatey](https://chocolatey.org/), [Pip](https://pypi.org/), [Npm](https://www.npmjs.com/), [.NET Tool](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install), [PowerShell Gallery](https://www.powershellgallery.com/), and more.
+With `UniGetUI`, you can discover, install, update, and uninstall software from multiple package managers through one interface.
 
 **Disclaimer:** UniGetUI is not affiliated with the package managers it integrates with. Packages are provided by third parties, so review sources and publishers before installation.
 
 > [!CAUTION]
-> **This is an unofficial fork of UniGetUI prior to the adding of the Avalonia UI. It is provided as-is without support. No guarantee of subsequent updates or backporting of changes is made.**<br>
+> **This is an unofficial fork of UniGetUI prior to the adding of the `Avalonia` UI. It is provided as-is without support. No guarantee of subsequent updates or backporting of changes is made.**<br>
 
 ## Project stewardship
 
@@ -15,24 +15,24 @@ The original UniGetUI was created by Martí Climent and is now maintained by Dev
 ## Table of contents
  - [Project stewardship](#project-stewardship)
  - [Installation](#installation)
- - [Update UniGetUI](#update-unigetui)
  - [Features](#features)
    - [Supported Package Managers](#supported-package-managers)
- - [Translating UniGetUI](#translating-unigetui-to-other-languages)
+ - [Translating UniGetUI](#translating-unigetui)
    - [Currently supported languages](#currently-supported-languages)
- - [Contributors](#contributors)
+ - [Contributions](#contributions)
  - [Screenshots](#screenshots)
- - [Frequently Asked Questions](#frequently-asked-questions)
+ - [Frequently Asked Questions](#faqs)
  - [Command-line Arguments](cli-arguments.md)
 
 ## Installation
-To install this fork of UniGetUI, you must download the latest release from the [Releases page](https://github.com/NDavies-02/WinGetUI/releases). Identify the correct architecture (arm64 or x64) and download the corresponding UniGetUI.Installer.[arch].exe file. Alternatively, portable .zip versions are available for both architectures.
+To install this fork of UniGetUI, you must download the latest release from the [Releases page](https://github.com/NDavies-02/WinGetUI/releases). Identify the correct architecture (`arm64 or x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
 
 > [!Warning]  
 > The release is unsigned. The workflow file used by GitHub actions to build this release is **not** the original `build-release.yml`, but instead `test.yml`, which is the same as the former, but with signing and testing steps removed. Therefore, when installing, you will get the "Unknown Publisher" User Account Control dialogue.
 
-## Update UniGetUI
-The built-in auto-updater is unchanged from the original, and will attempt to download and install the latest release from the original repository. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen.
+> [!Note]
+> ### UniGetUI Auto-Updater
+> The built-in auto-updater is unchanged from the original, and will attempt to download and install the latest release from the original repository. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen.
 
 ## Features
  - Install, update, and remove software from your system easily in one click: UniGetUI combines the packages from the most used package managers for windows: Winget, Chocolatey, Scoop, Pip, Npm and .NET Tool.
@@ -45,7 +45,7 @@ The built-in auto-updater is unchanged from the original, and will attempt to do
  - Easily customize how and where packages are installed. Select different installation options and switches for each package. Install an older version or forcibly install a 32 bit architecture.
  - Share packages with your friends using generated package links.
  - Export custom lists of packages to then import them to another machine and install those packages with previously specified, custom installation parameters. Setting up machines or configuring a specific software setup has never been easier.
- - Backup your packages to a local file to easily recover your setup in a matter of seconds when migrating to a new machine*
+ - Backup your packages to a local file to easily recover your setup in a matter of seconds when migrating to a new machine
 
 ## Supported Package Managers
 
@@ -60,17 +60,7 @@ The built-in auto-updater is unchanged from the original, and will attempt to do
 <br>
 
 # Translating UniGetUI
-Devolutions switched to AI translations for UniGetUI in March 2026. As this fork is based on a commit from March 2026, it likely includes some or all of those AI translations, though I have not verified this.
-As I am not maintaining this fork actively, the translations will stay as-is.
-
-Local translation maintenance in this repository is PowerShell-based:
-
-- Verify placeholder consistency: `pwsh ./scripts/verify_translations.ps1`
-- Find likely unused English keys: `pwsh ./scripts/purge_unused_translations.ps1`
-- Refresh contributor logins: `pwsh ./scripts/get_contributors.ps1`
-- Generate the language support table data: `pwsh ./scripts/Languages/LangReference.ps1 -AsJson`
-- Rebuild translation handoff patches with the agent skills under `./.agents/skills/translation-diff-*`
-
+Devolutions switched to AI translations for UniGetUI in March 2026. As this fork is based on a commit from March 2026, it likely includes some or all of those AI translations, though I have not verified this. Please see [here](https://github.com/Devolutions/UniGetUI/discussions/4510) for more info. As I am not maintaining this fork actively, the translations will stay as-is.
 
 ## Currently Supported languages
 <!-- Autogenerated translations -->
