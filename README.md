@@ -6,11 +6,11 @@ With `UniGetUI`, you can discover, install, update, and uninstall software from 
 **Disclaimer:** UniGetUI is not affiliated with the package managers it integrates with. Packages are provided by third parties, so review sources and publishers before installation.
 
 > [!CAUTION]
-> **This is an unofficial fork of UniGetUI prior to the adding of the `Avalonia` UI. It is provided as-is without support. No guarantee of subsequent updates or backporting of changes is made.**<br>
+> **This is an unofficial fork of UniGetUI prior to the adding of the `Avalonia` UI with minimal later fixes backported.**<br>
 
 ## Project stewardship
 
-The original UniGetUI was created by Martí Climent and is now maintained by Devolutions. This fork simply reverts to the last commit before the Avalonia UI was added. It is not affiliated with Devolutions or Martí Climent.
+The original UniGetUI was created by Martí Climent and is now maintained by Devolutions. This fork simply reverts to the last commit before the Avalonia UI was added, then incorporates some later fixes into UniGetUI `v4.0.0`.
 
 ## Table of contents
  - [Project stewardship](#project-stewardship)
