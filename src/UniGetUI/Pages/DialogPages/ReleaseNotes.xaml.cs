@@ -33,7 +33,7 @@ namespace UniGetUI.Interface.Dialogs
         {
             await WebView.EnsureCoreWebView2Async();
             WebView.Source = new Uri(
-                "https://github.com/NDavies-02/UniGetUI/releases/tag/" + CoreData.VersionName
+                "https://github.com/NDavies-02/UniGetUI/releases/tag/v" + CoreData.VersionName
             );
         }
 
