@@ -1,4 +1,4 @@
-## UniGetUI
+## UniGetUI (WinUI)
 
 [![Build Unsigned/Untested](https://github.com/NDavies-02/UniGetUI/actions/workflows/test.yml/badge.svg)](https://github.com/NDavies-02/UniGetUI/actions/workflows/test.yml)
 
@@ -27,13 +27,14 @@ The original UniGetUI was created by Martí Climent and is now maintained by Dev
  - [Command-line Arguments](cli-arguments.md)
 
 ## Installation
-To install this fork of UniGetUI, you must download the latest release from the [Releases page](https://github.com/NDavies-02/WinGetUI/releases). Identify the correct architecture (`arm64 or x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
+To install this fork of UniGetUI, you should download the latest release from the [Releases page](https://github.com/NDavies-02/WinGetUI/releases). Identify the correct architecture (`arm64 or x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
 
 > [!Warning]  
 > The release is unsigned. The workflow file used by GitHub actions to build this release is **not** the original `build-release.yml`, but instead `test.yml`, which is the same as the former, but with signing and testing steps removed. Therefore, when installing, you will get the "Unknown Publisher" User Account Control dialogue.
 
+### UniGetUI Auto-Updater
+As of `v4.1.3`, the Auto-Updater functions as expected. The following note applies to prior versions only.
 > [!Note]
-> ### UniGetUI Auto-Updater
 > The built-in auto-updater is unchanged from the original, and will attempt to download and install the latest release from the original repository. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen.
 
 ## Features
