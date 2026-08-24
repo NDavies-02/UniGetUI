@@ -84,7 +84,7 @@
         ButtonText="Manage"
         Click="ManageTelemetrySettings_Click"
         CornerRadius="8"
-        Text="Manage telemetry settings"
+        Text="Manage telemetry settings (ignored, always disabled in this build)"
       />
 
       <widgets:TranslatedTextBlock

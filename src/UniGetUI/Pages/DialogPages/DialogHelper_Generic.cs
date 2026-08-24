@@ -471,7 +471,7 @@ public static partial class DialogHelper
             new Run
             {
                 Text = CoreTools.Translate(
-                    "UniGetUI collects anonymous usage data with the sole purpose of understanding and improving the user experience."
+                    "UniGetUI collects anonymous usage data with the sole purpose of understanding and improving the user experience. In this build, telemetry is always disabled: the following setting is effectively ignored."
                 ),
             }
         );
@@ -480,7 +480,7 @@ public static partial class DialogHelper
             new Run
             {
                 Text = CoreTools.Translate(
-                    "No personal information is collected nor sent, and the collected data is anonimized, so it can't be back-tracked to you."
+                    "No personal information is collected nor sent, and the collected data is anonymized."
                 ),
             }
         );
@@ -509,9 +509,9 @@ public static partial class DialogHelper
 
         var res = await ShowDialogAsync(dialog);
 
-        if (res is ContentDialogResult.Primary)
+        if (res is ContentDialogResult.Primary) // Telemetry is disabled regardless of selection
         {
-            Settings.Set(Settings.K.DisableTelemetry, false);
+            Settings.Set(Settings.K.DisableTelemetry, true);
         }
         else
         {

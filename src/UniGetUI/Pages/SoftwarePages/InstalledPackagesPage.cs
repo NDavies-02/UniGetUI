@@ -316,11 +316,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 {
                     _ = BackupPackages_LOCAL();
                 }
-
-                if (Settings.Get(Settings.K.EnablePackageBackup_CLOUD))
-                {
-                    _ = BackupPackages_CLOUD();
-                }
             }
 
             if (
@@ -424,24 +419,7 @@ namespace UniGetUI.Interface.SoftwarePages
             return PackageBundlesPage.CreateBundle(packagesToExport.ToArray());
         }
 
-        public static async Task BackupPackages_CLOUD()
-        {
-            try
-            {
-                await CoreTools.WaitForInternetConnection();
-                string backupContents = await GenerateBackupContents();
-                var authService = new GitHubAuthService();
-                var backupService = new GitHubBackupService(authService);
-                await backupService.UploadPackageBundle(backupContents);
-                Logger.ImportantInfo("Cloud backup succeeded");
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("An error occurred while performing a CLOUD backup");
-                Logger.Error(ex);
-            }
-        }
-
+     
         public static async Task BackupPackages_LOCAL()
         {
             try
@@ -481,7 +459,7 @@ namespace UniGetUI.Interface.SoftwarePages
             }
             catch (Exception ex)
             {
-                Logger.Error("An error occurred while performing a LOCAL backup");
+                Logger.Error("An error occurred while performing a backup");
                 Logger.Error(ex);
             }
         }

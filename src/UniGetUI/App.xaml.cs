@@ -346,7 +346,6 @@ namespace UniGetUI
                 await Task.WhenAll(iniTasks);
 
                 // Load non-essential components
-                _ = TelemetryHandler.InitializeAsync();
                 _ = IconDatabase.Instance.LoadIconAndScreenshotsDatabaseAsync();
 
                 // Load interface

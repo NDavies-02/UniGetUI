@@ -32,6 +32,9 @@ public static class TelemetryHandler
     private const string HOST = "https://marticliment.com/unigetui/statistics";
 #endif
 
+    // Force-disable telemetry at runtime. Set to false to re-enable.
+    private const bool FORCE_DISABLE_TELEMETRY = true;
+
     private static readonly Settings.K[] SettingsToSend =
     [
         Settings.K.DisableAutoUpdateWingetUI,
@@ -54,6 +57,12 @@ public static class TelemetryHandler
     {
         try
         {
+            if (FORCE_DISABLE_TELEMETRY)
+            {
+                Logger.Debug("[Telemetry] Forced disabled - skipping InitializeAsync");
+                return;
+            }
+
             if (Settings.Get(Settings.K.DisableTelemetry))
                 return;
             await CoreTools.WaitForInternetConnection();
@@ -174,6 +183,12 @@ public static class TelemetryHandler
     {
         try
         {
+            if (FORCE_DISABLE_TELEMETRY)
+            {
+                Logger.Debug($"[Telemetry] Forced disabled - skipping /package/{endpoint}");
+                return;
+            }
+
             if (result is null && eventSource is null)
                 throw new ArgumentException("result and eventSource cannot both be null");
             if (Settings.Get(Settings.K.DisableTelemetry))
@@ -229,6 +244,12 @@ public static class TelemetryHandler
     {
         try
         {
+            if (FORCE_DISABLE_TELEMETRY)
+            {
+                Logger.Debug($"[Telemetry] Forced disabled - skipping /bundles/{endpoint}");
+                return;
+            }
+
             if (Settings.Get(Settings.K.DisableTelemetry))
                 return;
             await CoreTools.WaitForInternetConnection();
