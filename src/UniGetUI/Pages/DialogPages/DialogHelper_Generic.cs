@@ -484,20 +484,6 @@ public static partial class DialogHelper
                 ),
             }
         );
-        p.Inlines.Add(new LineBreak());
-        p.Inlines.Add(new LineBreak());
-        var link = new Hyperlink
-        {
-            NavigateUri = new Uri("https://devolutions.net/legal/"),
-        };
-        link.Inlines.Add(
-            new Run
-            {
-                Text = CoreTools.Translate(
-                    "More details about the shared data and how it will be processed"
-                ),
-            }
-        );
 
         p.Inlines.Add(link);
         p.Inlines.Add(new LineBreak());

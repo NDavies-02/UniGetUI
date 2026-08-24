@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version (required, e.g. 2026.1.0)'
+        description: 'Release version (required, e.g. 4.1.0)'
         required: true
       draft-release:
         description: 'Create the GitHub Release as a draft'
