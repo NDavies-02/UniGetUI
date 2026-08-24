@@ -1,69 +1,75 @@
-## UniGetUI (WinUI)
+# UniGet(Win)UI
+## Welcome
+`UniGetUI` is an intuitive graphical interface for common command-line package managers on Windows 10 and 11, including [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/), [Scoop](https://scoop.sh/), [Chocolatey](https://chocolatey.org/), [Pip](https://pypi.org/), [Npm](https://www.npmjs.com/), [.NET Tool](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install), [PowerShell Gallery](https://www.powershellgallery.com/), and more.
+With `UniGetUI` you can discover, install, update, and uninstall software from multiple package managers through one interface.  
+
+**Disclaimer:** UniGetUI is not affiliated with the package managers it integrates with. Packages are provided by third parties, so review sources and publishers before installation.  
 
 [![Build Unsigned/Untested](https://github.com/NDavies-02/UniGetUI/actions/workflows/test.yml/badge.svg)](https://github.com/NDavies-02/UniGetUI/actions/workflows/test.yml)
 
-`UniGetUI` is an intuitive GUI for the most common CLI package managers on Windows 10 and 11, including [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/), [Scoop](https://scoop.sh/), [Chocolatey](https://chocolatey.org/), [Pip](https://pypi.org/), [Npm](https://www.npmjs.com/), [.NET Tool](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install), [PowerShell Gallery](https://www.powershellgallery.com/), and more.
-With `UniGetUI`, you can discover, install, update, and uninstall software from multiple package managers through one interface.
-
-**Disclaimer:** UniGetUI is not affiliated with the package managers it integrates with. Packages are provided by third parties, so review sources and publishers before installation.
-
-> [!CAUTION]
-> **This is an unofficial fork of UniGetUI prior to the adding of the `Avalonia` UI with minimal later fixes backported.**<br>
-
 ## Project stewardship
 
-The original UniGetUI was created by Martí Climent and is now maintained by Devolutions. This fork simply reverts to the last commit before the Avalonia UI was added, then incorporates some later fixes into UniGetUI `v4.0.0`.
+The original UniGetUI was created by Martí Climent and is now maintained by Devolutions. This version of UniGetUI was forked from the last Git commit before the Avalonia UI was added, with some later fixes backported.
 
 ## Table of contents
- - [Project stewardship](#project-stewardship)
  - [Installation](#installation)
  - [Features](#features)
    - [Supported Package Managers](#supported-package-managers)
- - [Translating UniGetUI](#translating-unigetui)
-   - [Currently supported languages](#currently-supported-languages)
+ - [UniGetUI Translations & Language Support](#translating-unigetui)
  - [Contributions](#contributions)
  - [Screenshots](#screenshots)
  - [Frequently Asked Questions](#faqs)
  - [Command-line Arguments](cli-arguments.md)
 
 ## Installation
-To install this fork of UniGetUI, you should download the latest release from the [Releases page](https://github.com/NDavies-02/WinGetUI/releases). Identify the correct architecture (`arm64 or x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
+To install this fork of UniGetUI, you should download the [latest release from the Releases page](https://github.com/NDavies-02/WinGetUI/releases/latest). Identify the correct architecture (`arm64` or `x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
 
 > [!Warning]  
-> The release is unsigned. The workflow file used by GitHub actions to build this release is **not** the original `build-release.yml`, but instead `test.yml`, which is the same as the former, but with signing and testing steps removed. Therefore, when installing, you will get the "Unknown Publisher" User Account Control dialogue.
+> The release is unsigned. Therefore, when installing, you will get the "Unknown Publisher" User Account Control dialogue.
+
+## UniGetUI Cleanup Script  
+The `UniGetUI Cleanup.ps1` PowerShell script performs the following actions:
+- Delete non-English language files
+- Resets the UniGetUI cache
+- Removes the legacy `WingetUI.exe` executable
+- Deletes the downloaded `UniGetUI updater.exe`.
+> [!IMPORTANT]  
+> If using a language other than English, you should remove the corresponding language folder and `.json` file from the script.
+> This script only works if UniGetUI is installed to `C:/Program Files/UniGetUI`.
+> To restore the language files, you should reinstall UniGetUI.
 
 ### UniGetUI Auto-Updater
 As of `v4.1.3`, the Auto-Updater functions as expected. The following note applies to prior versions only.
 > [!Note]
-> The built-in auto-updater is unchanged from the original, and will attempt to download and install the latest release from the original repository. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen.
+> For UniGetUI versions prior to `v4.1.3` only, the built-in auto-updater will attempt to download and install the latest Devolutions release. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen. Alternatively, update to UniGetUI `v4.1.3` which resolves this problem.
 
 ## Features
- - Install, update, and remove software from your system easily in one click: UniGetUI combines the packages from the most used package managers for windows: Winget, Chocolatey, Scoop, Pip, Npm and .NET Tool.
+ - Install, update, and remove software from your system easily in one click: UniGetUI combines the packages from multiple Windows package managers, including: `winget`, `chocolatey`, `scoop`, `pip`, `npm` and `.NET Tool`.
  - Discover new packages and filter them to easily find the package you want.
- - View detailed metadata about any package before installing it. Get the direct download URL or the name of the publisher, as well as the size of the download.
- - Easily bulk-install, update, or uninstall multiple packages at once selecting multiple packages before performing an operation
+ - View detailed metadata about any package before installing it. See the direct download URL or the name of the publisher, as well as the size of the download.
+ - Easily bulk-install, update, or uninstall multiple packages at once, selecting multiple packages before performing an operation
  - Automatically update packages, or be notified when updates become available. Skip versions or completely ignore updates on a per-package basis.
- - WinUI interface, matching the native design language of Windows 11.
+ - `WinUI` interface, matching the native Fluent design language of Windows 11.
  - The system tray icon will also show the available updates and installed packages, to efficiently update a program or remove a package from your system.
- - Easily customize how and where packages are installed. Select different installation options and switches for each package. Install an older version or forcibly install a 32 bit architecture.
+ - Easily customize how and where packages are installed. Select different installation options and switches for each package. Install an older version or forcibly install a `32-bit` architecture.
  - Share packages with your friends using generated package links.
- - Export custom lists of packages to then import them to another machine and install those packages with previously specified, custom installation parameters. Setting up machines or configuring a specific software setup has never been easier.
- - Backup your packages to a local file to easily recover your setup in a matter of seconds when migrating to a new machine
+ - Export custom lists of packages to then import them to another machine and install those packages with previously specified custom installation parameters. Setting up machines or configuring a specific software setup has never been easier.
+ - Backup your packages to a local file to easily recover your setup when migrating to a new machine.
 
 ## Supported Package Managers
-
-**NOTE:** All package managers do support basic install, update, and uninstall processes, as well as checking for updates, finding new packages, and retrieving details from a package.
+> [!NOTE]
+> All package managers support basic install, update, and uninstall processes, as well as checking for updates, finding new packages, and retrieving details from a package.
 
 ![image](media/supported-managers.svg)
 
 ✅: Supported in UniGetUI<br>
-☑️: Not directly supported but can be easily achieved<br>
+☑️: Not directly supported but can be achieved<br>
 ⚠️: May not work in some cases<br>
-❌: Not supported by the Package Manager<br>
+❌: Unsupported by the package manager<br>
 <br>
 
 # Translating UniGetUI
-Devolutions switched to AI translations for UniGetUI in March 2026. As this fork is based on a commit from March 2026, it likely includes some or all of those AI translations, though I have not verified this. Please see [here](https://github.com/Devolutions/UniGetUI/discussions/4510) for more info. As I am not maintaining this fork actively, the translations will stay as-is.
+Devolutions switched to AI translations for UniGetUI in March 2026. As this fork is based on a commit from March 2026, it may include some of those AI translations, though I have not verified this. Please see [this GitHub discussion](https://github.com/Devolutions/UniGetUI/discussions/4510) for more info. I will not be maintaining or updating any of the translations.
 
 ## Currently Supported languages
 <!-- Autogenerated translations -->
@@ -117,16 +123,15 @@ Devolutions switched to AI translations for UniGetUI in March 2026. As this fork
 | <img src='https://flagcdn.com/ta.svg' width=20> &nbsp; Tamil - தமிழ் | 4% | [nochilli](https://github.com/nochilli) |
 | <img src='https://flagcdn.com/ph.svg' width=20> &nbsp; Tagalog - Tagalog | 11% | lasersPew, [znarfm](https://github.com/znarfm) |
 | <img src='https://flagcdn.com/th.svg' width=20> &nbsp; Thai - ภาษาไทย | 81% | [apaeisara](https://github.com/apaeisara), [dulapahv](https://github.com/dulapahv), [hanchain](https://github.com/hanchain), [rikoprushka](https://github.com/rikoprushka), [vestearth](https://github.com/vestearth) |
-| <img src='https://flagcdn.com/tr.svg' width=20> &nbsp; Turkish - Türkçe | 99% | [ahmetozmtn](https://github.com/ahmetozmtn), [BerkeA111](https://github.com/BerkeA111), [dogancanyr @anzeralp](https://github.com/dogancanyr @anzeralp), [gokberkgs](https://github.com/gokberkgs) |
+| <img src='https://flagcdn.com/tr.svg' width=20> &nbsp; Turkish - Türkçe | 99% | [ahmetozmtn](https://github.com/ahmetozmtn), [BerkeA111](https://github.com/BerkeA111), [dogancanyr @anzeralp](https://github.com/dogancanyr), [gokberkgs](https://github.com/gokberkgs) |
 | <img src='https://flagcdn.com/ua.svg' width=20> &nbsp; Ukrainian - Українська | 99% | Alex Logvin, Artem Moldovanenko, Operator404, [Taron-art](https://github.com/Taron-art) |
 | <img src='https://flagcdn.com/pk.svg' width=20> &nbsp; Urdu - اردو | 81% | [digitio](https://github.com/digitio), [digitpk](https://github.com/digitpk), [hamzaharoon1314](https://github.com/hamzaharoon1314) |
 | <img src='https://flagcdn.com/vn.svg' width=20> &nbsp; Vietnamese - Tiếng Việt | 100% | [aethervn2309](https://github.com/aethervn2309), [legendsjoon](https://github.com/legendsjoon), [txavlog](https://github.com/txavlog), [vanlongluuly](https://github.com/vanlongluuly) |
 | <img src='https://flagcdn.com/cn.svg' width=20> &nbsp; Simplified Chinese (China) | 100% | Aaron Liu, adfnekc, [Ardenet](https://github.com/Ardenet), [arthurfsy2](https://github.com/arthurfsy2), [bai0012](https://github.com/bai0012), BUGP Association, ciaran, CnYeSheng, Cololi, [dongfengweixiao](https://github.com/dongfengweixiao), [enKl03B](https://github.com/enKl03B), [seanyu0](https://github.com/seanyu0), [Sigechaishijie](https://github.com/Sigechaishijie), [SpaceTimee](https://github.com/SpaceTimee), [xiaopangju](https://github.com/xiaopangju), Yisme |
 | <img src='https://flagcdn.com/tw.svg' width=20> &nbsp; Traditional Chinese (Taiwan) | 100% | Aaron Liu, [CnYeSheng](https://github.com/CnYeSheng), Cololi, [enKl03B](https://github.com/enKl03B), [Henryliu880922](https://github.com/Henryliu880922), [MINAX2U](https://github.com/MINAX2U), [StarsShine11904](https://github.com/StarsShine11904), [yrctw](https://github.com/yrctw) |
 
-Last updated: Fri Feb 27 00:46:32 2026
+Information correct as of: Fri, 27 Feb 2026.
 <!-- END Autogenerated translations -->
-
 
 # Contributions
  UniGetUI was created by Martí Climent and is now maintained by Devolutions, with contributions from the community. Without them, UniGetUI wouldn't be possible.
@@ -149,7 +154,6 @@ Last updated: Fri Feb 27 00:46:32 2026
 ![image](media/UniGetUI_8.png)
 
 ![image](media/UniGetUI_9.png)
-
 
 # FAQs
 
@@ -177,7 +181,7 @@ A: A common reason apps (i.e., executables) get blocked and/or detected as a vir
 
 Combine that with the fact that you might be downloading something recently released, and blocking unknown apps is in many cases a good precaution to take to prevent actual malware.
 
-Since UniGetUI is open source and safe to use, whitelist the app in the settings of your antivirus/browser.<br>
+Since UniGetUI is open source and safe to use, whitelist the app within your antivirus product.<br>
 
 #
 
@@ -185,7 +189,7 @@ Since UniGetUI is open source and safe to use, whitelist the app in the settings
 
 A: UniGetUI, Microsoft, and Scoop aren't responsible for the packages available for download, which are provided by third parties and can theoretically be compromised.
 
-Microsoft has implemented a few checks for the software available on Winget to mitigate the risks of downloading malware. Even so, it's recommended that you only download software from trusted publishers. 
+Microsoft has implemented a few checks for the software available on Winget to mitigate the risks of downloading malware. Even so, it's recommended that you only download software from trusted publishers. You may wish to ensure you have some kind of real-time antivirus on your machine.
 
 ## Command-line parameters:
 
