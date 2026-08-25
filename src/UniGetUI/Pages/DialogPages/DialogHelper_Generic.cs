@@ -485,7 +485,6 @@ public static partial class DialogHelper
             }
         );
 
-        p.Inlines.Add(link);
         p.Inlines.Add(new LineBreak());
         p.Inlines.Add(new LineBreak());
         p.Inlines.Add(

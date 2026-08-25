@@ -14,28 +14,20 @@
   https://github.com/microsoft/CsWinRT/blob/master/nuget/readme.md
   -->
     <PropertyGroup>
-        <CsWinRTWindowsMetadata Condition="'$(PkgMicrosoft_Windows_SDK_Contracts)' != ''"
-            >$(PkgMicrosoft_Windows_SDK_Contracts)\ref\netstandard2.0</CsWinRTWindowsMetadata
-        >
-        <CsWinRTWindowsMetadata Condition="'$(PkgMicrosoft_Windows_SDK_Contracts)' == ''"
-            >10.0.26100.0</CsWinRTWindowsMetadata
-        >
+        <CsWinRTWindowsMetadata Condition="'$(PkgMicrosoft_Windows_SDK_Contracts)' != ''">$(PkgMicrosoft_Windows_SDK_Contracts)\ref\netstandard2.0</CsWinRTWindowsMetadata>
+        <CsWinRTWindowsMetadata Condition="'$(PkgMicrosoft_Windows_SDK_Contracts)' == ''">10.0.26100.0</CsWinRTWindowsMetadata>
         <CsWinRTIncludes>Microsoft.Management.Deployment</CsWinRTIncludes>
         <WindowsPackageManagerWinmd>$(PkgMicrosoft_WindowsPackageManager_InProcCom)\lib\Microsoft.Management.Deployment.winmd</WindowsPackageManagerWinmd>
     </PropertyGroup>
 
     <ItemGroup>
         <CsWinRTInputs Include="$(WindowsPackageManagerWinmd)" />
-        <Content
-            Include="$(WindowsPackageManagerWinmd)"
-            Link="Microsoft.Management.Deployment.winmd"
-            CopyToOutputDirectory="PreserveNewest"
-        />
+        <Content Include="$(WindowsPackageManagerWinmd)" Link="Microsoft.Management.Deployment.winmd" CopyToOutputDirectory="PreserveNewest" />
         <!--Content Include="$(TargetDir)\winrtact.dll" Link="winrtact.dll" CopyToOutputDirectory="PreserveNewest" /-->
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
         <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.26100.4948">
             <GeneratePathProperty>true</GeneratePathProperty>
             <IncludeAssets>none</IncludeAssets>
