@@ -14,7 +14,6 @@ using UniGetUI.PackageEngine.Interfaces;
 using UniGetUI.PackageEngine.Managers.WingetManager;
 using UniGetUI.PackageEngine.PackageLoader;
 using UniGetUI.Pages.DialogPages;
-using UniGetUI.Services;
 using Windows.UI.Text;
 
 namespace UniGetUI.Interface.SoftwarePages
