@@ -12,7 +12,6 @@ using UniGetUI.Core.Tools;
 using UniGetUI.Interface.SoftwarePages;
 using UniGetUI.PackageEngine.Enums;
 using UniGetUI.Pages.DialogPages;
-using UniGetUI.Services;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
