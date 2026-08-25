@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
@@ -8,12 +12,31 @@ namespace UniGetUI
 {
     public static class EntryPoint
     {
+        private const uint MessageBoxYesNo = 0x00000004;
+        private const uint MessageBoxIconQuestion = 0x00000020;
+        private const uint MessageBoxIconError = 0x00000010;
+        private const int MessageBoxResultYes = 6;
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern int MessageBox(
+            nint hWnd,
+            string text,
+            string caption,
+            uint type
+        );
+
         [STAThread]
         private static void Main(string[] args)
         {
             // Having an async main method breaks WebView2
             try
             {
+                if (!EnsureAdministrator())
+                {
+                    Environment.Exit(0);
+                    return;
+                }
+
                 if (args.Contains(CLIHandler.HELP))
                 {
                     CLIHandler.Help();
@@ -86,6 +109,70 @@ namespace UniGetUI
             catch (Exception e)
             {
                 CrashHandler.ReportFatalException(e);
+            }
+        }
+
+        private static bool EnsureAdministrator()
+        {
+            using WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new(identity);
+
+            if (principal.IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                return true;
+            }
+
+            int result = MessageBox(
+                nint.Zero,
+                "UniGetUI needs administrator privileges to run. Restart the application as administrator?",
+                "Administrator privileges required",
+                MessageBoxYesNo | MessageBoxIconQuestion
+            );
+
+            if (result != MessageBoxResultYes)
+            {
+                return false;
+            }
+
+            try
+            {
+                string? executablePath = Environment.ProcessPath;
+                if (string.IsNullOrWhiteSpace(executablePath))
+                {
+                    return false;
+                }
+
+                ProcessStartInfo startInfo = new()
+                {
+                    FileName = executablePath,
+                    Verb = "runas",
+                    UseShellExecute = true,
+                    WorkingDirectory = AppContext.BaseDirectory,
+                };
+
+                foreach (string argument in Environment.GetCommandLineArgs().Skip(1))
+                {
+                    startInfo.ArgumentList.Add(argument);
+                }
+
+                Process.Start(startInfo);
+                return false;
+            }
+            catch (Win32Exception)
+            {
+                // The user cancelled the UAC prompt.
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox(
+                    nint.Zero,
+                    $"Could not restart UniGetUI as administrator:\n\n{ex.Message}",
+                    "Unable to restart",
+                    MessageBoxIconError
+                );
+
+                return false;
             }
         }
 
