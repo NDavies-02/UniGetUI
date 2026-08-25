@@ -7,7 +7,6 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:local="using:UniGetUI.Pages.SettingsPages.GeneralPages"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:services="using:UniGetUI.Services"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
   mc:Ignorable="d"
