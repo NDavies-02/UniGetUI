@@ -235,7 +235,7 @@ namespace UniGetUI.Interface
                 _currentSubtitle += " - ";
             _currentSubtitle += line;
             _currentSubtitlePxLength = _currentSubtitle.Length * 4;
-            Title = "UniGetUI - " + _currentSubtitle;
+            Title = "UniGetUI " + _currentSubtitle;
             TitleBar.Subtitle = subtitleCollapsed is true ? "" : _currentSubtitle;
         }
 
