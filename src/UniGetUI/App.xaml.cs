@@ -332,7 +332,7 @@ namespace UniGetUI
                 // Create MainWindow
                 InitializeMainWindow();
 
-                IEnumerable<Task> iniTasks =
+                Task[] iniTasks =
                 [
                     Task.Run(PEInterface.LoadManagers), // Takes most of the time
                     Task.Run(SetUpWebViewUserDataFolder),

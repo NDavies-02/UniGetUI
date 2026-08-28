@@ -26,11 +26,8 @@ public enum TEL_OP_RESULT
 
 public static class TelemetryHandler
 {
-#if DEBUG
     private const string HOST = "http://localhost:3000";
-#else
     private const string HOST = "https://marticliment.com/unigetui/statistics";
-#endif
 
     // Force-disable telemetry at runtime. Set to false to re-enable.
     private const bool FORCE_DISABLE_TELEMETRY = true;
@@ -62,78 +59,7 @@ public static class TelemetryHandler
                 Logger.Debug("[Telemetry] Forced disabled - skipping InitializeAsync");
                 return;
             }
-
-            if (Settings.Get(Settings.K.DisableTelemetry))
-                return;
-            await CoreTools.WaitForInternetConnection();
-            string ID = GetRandomizedId();
-
-            int mask = 0x1;
-            int ManagerMagicValue = 0;
-
-            foreach (var manager in PEInterface.Managers)
-            {
-                if (manager.IsEnabled())
-                    ManagerMagicValue |= mask;
-                mask = mask << 1;
-                if (manager.IsEnabled() && manager.Status.Found)
-                    ManagerMagicValue |= mask;
-                mask = mask << 1;
-
-                if (mask == 0x1)
-                    throw new OverflowException();
-            }
-
-            int SettingsMagicValue = 0;
-            mask = 0x1;
-            foreach (var setting in SettingsToSend)
-            {
-                bool enabled = Settings.Get(
-                    key: setting,
-                    invert: Settings.ResolveKey(setting).StartsWith("Disable")
-                );
-
-                if (enabled)
-                    SettingsMagicValue |= mask;
-                mask = mask << 1;
-
-                if (mask == 0x1)
-                    throw new OverflowException();
-            }
-            foreach (var setting in new[] { "SP1", "SP2" })
-            {
-                bool enabled;
-                if (setting == "SP1")
-                    enabled = File.Exists("ForceUniGetUIPortable");
-                else if (setting == "SP2")
-                    enabled = CoreData.WasDaemon;
-                else
-                    throw new NotImplementedException();
-
-                if (enabled)
-                    SettingsMagicValue |= mask;
-                mask = mask << 1;
-
-                if (mask == 0x1)
-                    throw new OverflowException();
-            }
-
-            var request = new HttpRequestMessage(HttpMethod.Post, $"{HOST}/activity");
-
-            request.Headers.Add("clientId", ID);
-            request.Headers.Add("clientVersion", CoreData.VersionName);
-            request.Headers.Add("activeManagers", ManagerMagicValue.ToString());
-            request.Headers.Add("activeSettings", SettingsMagicValue.ToString());
-            request.Headers.Add("language", LanguageEngine.SelectedLocale);
-
-            HttpClient _httpClient = new(CoreTools.GenericHttpClientParameters);
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(CoreData.UserAgentString);
-            HttpResponseMessage response = await _httpClient.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                Logger.Debug("[Telemetry] Call to /activity succeeded");
-            }
+            //TELEMETRY REMOVED
             else
             {
                 Logger.Warn(
@@ -188,34 +114,7 @@ public static class TelemetryHandler
                 Logger.Debug($"[Telemetry] Forced disabled - skipping /package/{endpoint}");
                 return;
             }
-
-            if (result is null && eventSource is null)
-                throw new ArgumentException("result and eventSource cannot both be null");
-            if (Settings.Get(Settings.K.DisableTelemetry))
-                return;
-            await CoreTools.WaitForInternetConnection();
-            string ID = GetRandomizedId();
-
-            var request = new HttpRequestMessage(HttpMethod.Post, $"{HOST}/package/{endpoint}");
-
-            request.Headers.Add("clientId", ID);
-            request.Headers.Add("clientVersion", CoreData.VersionName);
-            request.Headers.Add("packageId", package.Id);
-            request.Headers.Add("managerName", package.Manager.Name);
-            request.Headers.Add("sourceName", package.Source.Name);
-            if (result is not null)
-                request.Headers.Add("operationResult", result.ToString());
-            if (eventSource is not null)
-                request.Headers.Add("eventSource", eventSource);
-
-            HttpClient _httpClient = new(CoreTools.GenericHttpClientParameters);
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(CoreData.UserAgentString);
-            HttpResponseMessage response = await _httpClient.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                Logger.Debug($"[Telemetry] Call to /package/{endpoint} succeeded");
-            }
+            //TELEMETRY REMOVED
             else
             {
                 Logger.Warn(
@@ -250,32 +149,13 @@ public static class TelemetryHandler
                 return;
             }
 
-            if (Settings.Get(Settings.K.DisableTelemetry))
-                return;
-            await CoreTools.WaitForInternetConnection();
-            string ID = GetRandomizedId();
-
-            var request = new HttpRequestMessage(HttpMethod.Post, $"{HOST}/bundles/{endpoint}");
-
-            request.Headers.Add("clientId", ID);
-            request.Headers.Add("clientVersion", CoreData.VersionName);
-            request.Headers.Add("bundleType", type);
-
-            HttpClient _httpClient = new(CoreTools.GenericHttpClientParameters);
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(CoreData.UserAgentString);
-            HttpResponseMessage response = await _httpClient.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                Logger.Debug($"[Telemetry] Call to /bundles/{endpoint} succeeded");
-            }
+            //TELEMETRY REMOVED
             else
             {
                 Logger.Warn(
                     $"[Telemetry] Call to /bundles/{endpoint} failed with error code {response.StatusCode}"
                 );
             }
-        }
         catch (Exception ex)
         {
             Logger.Error($"[Telemetry] Hard crash when calling /bundles/{endpoint}");

@@ -433,28 +433,28 @@ namespace UniGetUI.Interface.SoftwarePages
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem]);
+            _ = ImportAndInstallPackage(new[] { SelectedItem });
         }
 
         private void MenuAsAdmin_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], elevated: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, elevated: true);
         }
 
         private void MenuInteractive_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], interactive: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, interactive: true);
         }
 
         private void MenuSkipHash_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], skiphash: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, skiphash: true);
         }
 
         private void MenuShare_Invoked(object sender, RoutedEventArgs args)
