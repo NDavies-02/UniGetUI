@@ -219,7 +219,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { PackageDetails, IconType.Info_Round },
                 { SharePackage, IconType.Share },
                 { ExportSelection, IconType.AddTo },
-                { HelpButton, IconType.Help },
             };
 
             ApplyTextAndIconsToToolbar(Labels, Icons);
@@ -227,7 +226,6 @@ namespace UniGetUI.Interface.SoftwarePages
             PackageDetails.Click += (_, _) =>
                 ShowDetailsForPackage(SelectedItem, TEL_InstallReferral.DIRECT_SEARCH);
             ExportSelection.Click += ExportSelection_Click;
-            HelpButton.Click += (_, _) => MainApp.Instance.MainWindow.NavigationPage.ShowHelp();
             InstallationSettings.Click += (_, _) =>
                 _ = ShowInstallationOptionsForPackage(SelectedItem);
 

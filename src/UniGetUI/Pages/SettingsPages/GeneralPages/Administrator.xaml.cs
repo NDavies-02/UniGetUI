@@ -15,12 +15,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
         {
             this.InitializeComponent();
 
-            if (DoCacheAdminRights.Checked && DoCacheAdminRightsForBatches.Checked)
-            {
-                DoCacheAdminRights.IsEnabled = true;
-                DoCacheAdminRightsForBatches.IsEnabled = true;
-            }
-
             WarningTitlebar.Title = CoreTools.Translate("Warning") + "!";
             WarningTitlebar.Message =
                 CoreTools.Translate(
