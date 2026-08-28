@@ -52,35 +52,30 @@ public static class TelemetryHandler
     // -------------------------------------------------------------------------
 
     public static void InstallPackage(
-        IPackage package,
-        TEL_OP_RESULT status,
-        TEL_InstallReferral source
-    ) => PackageEndpoint(package, "install", status, source.ToString());
+    IPackage package,
+    TEL_OP_RESULT status,
+    TEL_InstallReferral source
+) => PackageEndpoint("install");
 
     public static void UpdatePackage(IPackage package, TEL_OP_RESULT status) =>
-        PackageEndpoint(package, "update", status);
+        PackageEndpoint("update");
 
     public static void DownloadPackage(
         IPackage package,
         TEL_OP_RESULT status,
         TEL_InstallReferral source
-    ) => PackageEndpoint(package, "download", status, source.ToString());
+    ) => PackageEndpoint("download");
 
     public static void UninstallPackage(IPackage package, TEL_OP_RESULT status) =>
-        PackageEndpoint(package, "uninstall", status);
+        PackageEndpoint("uninstall");
 
     public static void PackageDetails(IPackage package, string eventSource) =>
-        PackageEndpoint(package, "details", eventSource: eventSource);
+        PackageEndpoint("details");
 
     public static void SharedPackage(IPackage package, string eventSource) =>
-        PackageEndpoint(package, "share", eventSource: eventSource);
+        PackageEndpoint("share");
 
-    private static async void PackageEndpoint(
-        IPackage package,
-        string endpoint,
-        TEL_OP_RESULT? result = null,
-        string? eventSource = null
-    )
+    private static void PackageEndpoint(string endpoint)
     {
         try
         {
@@ -101,14 +96,14 @@ public static class TelemetryHandler
     // -------------------------------------------------------------------------
 
     public static void ImportBundle(BundleFormatType type) =>
-        BundlesEndpoint("import", type.ToString());
+        BundlesEndpoint("import");
 
     public static void ExportBundle(BundleFormatType type) =>
-        BundlesEndpoint("export", type.ToString());
+        BundlesEndpoint("export");
 
-    public static void ExportBatch() => BundlesEndpoint("export", "PS1_SCRIPT");
+    public static void ExportBatch() => BundlesEndpoint("export");
 
-    private static async void BundlesEndpoint(string endpoint, string type)
+    private static void BundlesEndpoint(string endpoint)
     {
         try
         {
