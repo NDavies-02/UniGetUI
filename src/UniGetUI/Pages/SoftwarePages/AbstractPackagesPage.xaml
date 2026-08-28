@@ -847,7 +847,7 @@
                       <widgets:TranslatedTextBlock
                         FontSize="12"
                         FontWeight="SemiBold"
-                        Text="Clear selection"
+                        Text="Clear all"
                       />
                     </HyperlinkButton>
                     <TreeView
@@ -1244,7 +1244,7 @@
             Padding="16,8,10,8"
             x:FieldModifier="protected"
             CornerRadius="8,0,0,8"
-            FontSize="28"
+            FontSize="24"
             FontWeight="SemiBold"
           />
           <Button

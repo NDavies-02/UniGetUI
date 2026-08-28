@@ -165,7 +165,7 @@
         </controls:SettingsCard.Description>
       </controls:SettingsCard>
 
-      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Other settings" />
+      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Connectivity checking" />
 
       <widgets:CheckboxCard
         x:Name="DisableWaitForInternetConnection"

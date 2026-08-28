@@ -26,7 +26,7 @@
         Click="General"
         Icon="settings"
         Text="General preferences"
-        UnderText="Language, theme and other miscellaneous preferences"
+        UnderText="Language, UniGetUI updates, backup and restore"
       />
 
       <UserControl Height="16" />
@@ -37,7 +37,7 @@
         CornerRadius="8,8,0,0"
         Icon="interactive"
         Text="User interface preferences"
-        UnderText="Application theme, startup page, package icons, clear successful installs automatically"
+        UnderText="Application theme, system tray configuration, package lists"
       />
 
       <widgets:SettingsPageButton
@@ -47,7 +47,7 @@
         CornerRadius="0,0,8,8"
         Icon="megaphone"
         Text="Notification preferences"
-        UnderText="Show notifications on different events"
+        UnderText="Event-based notifications"
       />
 
       <UserControl Height="16" />
@@ -56,8 +56,8 @@
         Click="Administrator"
         CornerRadius="8"
         Icon="uac"
-        Text="Administrator rights and other dangerous settings"
-        UnderText="Reduce UAC prompts, elevate installations by default, unlock certain dangerous features, etc."
+        Text="Administrator rights and package operation restrictions"
+        UnderText="UAC prompts, package operation restrictions, package manager restrictions"
       />
 
       <UserControl Height="16" />
@@ -115,7 +115,7 @@
         CornerRadius="8,8,0,0"
         Icon="Search"
         Text="Internet connection settings"
-        UnderText="Proxy settings, etc."
+        UnderText="Proxy settings and internet waiting"
       >
         <widgets:SettingsPageButton.HeaderIcon>
           <FontIcon FontSize="12" Glyph="&#xE839;" />
@@ -128,8 +128,8 @@
         Click="Experimental"
         CornerRadius="0,0,8,8"
         Icon="experimental"
-        Text="Experimental settings and developer options"
-        UnderText="Beta features and other options that shouldn't be touched"
+        Text="Advanced settings"
+        UnderText="Recommended for advanced users only"
       />
     </StackPanel>
   </ScrollViewer>

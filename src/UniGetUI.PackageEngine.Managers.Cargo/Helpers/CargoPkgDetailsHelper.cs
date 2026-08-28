@@ -58,9 +58,6 @@ internal sealed class CargoPkgDetailsHelper(Cargo manager) : BasePkgDetailsHelpe
         details.Publisher = versionData.published_by?.name;
         details.UpdateDate = versionData.updated_at;
 
-        // TODO: most packages are hosted on Github; see if there's a way to use the repository
-        // info to extract release notes
-
         logger.Close(0);
         return;
     }

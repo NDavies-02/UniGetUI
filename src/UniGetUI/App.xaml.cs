@@ -229,7 +229,7 @@ namespace UniGetUI
                                 "Something went wrong"
                             );
                             MainWindow.ErrorBanner.Message = CoreTools.Translate(
-                                "An interal error occurred. Please view the log for further details."
+                                "An internal error occurred. Please view the log for further details."
                             );
                             MainWindow.ErrorBanner.IsOpen = true;
                             Button button = new() { Content = CoreTools.Translate("WingetUI Log") };

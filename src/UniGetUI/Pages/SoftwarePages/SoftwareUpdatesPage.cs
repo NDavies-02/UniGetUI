@@ -285,12 +285,12 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(InstallationSettings);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
+            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(SharePackage);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(IgnoreSelected);
-            ToolBar.PrimaryCommands.Add(ManageIgnored);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(HelpButton);
+            ToolBar.PrimaryCommands.Add(ManageIgnored);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a leading space are collapsed
@@ -300,12 +300,11 @@ namespace UniGetUI.Interface.SoftwarePages
                 { UpdateInteractive, CoreTools.Translate("Interactive update") },
                 { DownloadInstallers, CoreTools.Translate("Download selected installers") },
                 { UninstallSelection, CoreTools.Translate("Uninstall selected packages") },
-                { InstallationSettings, " " + CoreTools.Translate("Update options") },
+                { InstallationSettings, CoreTools.Translate("Update options") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
                 { SharePackage, " " + CoreTools.Translate("Share") },
                 { IgnoreSelected, CoreTools.Translate("Ignore selected packages") },
                 { ManageIgnored, CoreTools.Translate("Manage ignored updates") },
-                { HelpButton, CoreTools.Translate("Help") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()
@@ -426,7 +425,7 @@ namespace UniGetUI.Interface.SoftwarePages
                     _ = MainApp.Operations.UpdateAll();
                     await ShowUpgradingPackagesNotification(upgradablePackages);
                     Logger.Warn(
-                        "Automatic install of updates has been enabled via Command Line (user settings have been overriden)"
+                        "Automatic install of updates has been enabled via Command Line (user settings have been overridden)"
                     );
                 }
                 else

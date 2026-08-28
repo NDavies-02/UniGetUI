@@ -1027,7 +1027,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 Write-Host "NOTES:" -ForegroundColor Yellow
                 Write-Host "  - The install process will not be as reliable as importing a bundle with UniGetUI. Expect issues and errors." -ForegroundColor Yellow
                 Write-Host "  - Packages will be installed with the install options specified at the time of creation of this script." -ForegroundColor Yellow
-                Write-Host "  - Error/Sucess detection may not be 100% accurate." -ForegroundColor Yellow
+                Write-Host "  - Error/Success detection may not be 100% accurate." -ForegroundColor Yellow
                 Write-Host "  - Some of the packages may require elevation. Some of them may ask for permission, but others may fail. Consider running this script elevated." -ForegroundColor Yellow
                 Write-Host "  - You can skip confirmation prompts by running this script with the parameter `/DisablePausePrompts` " -ForegroundColor Yellow
                 Write-Host ""

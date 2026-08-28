@@ -32,11 +32,11 @@ namespace UniGetUI.Interface
 {
     public sealed partial class MainWindow : Window
     {
-        public void ShowAdministratorWarning() //Display a banner warning of lack of admin rights w/ restart button
+        public void ShowAdministratorWarning() //Display a banner warning of missing admin rights with a restart button
         {
             Button restartButton = new()
             {
-                Content = "Restart as administrator",
+                Content = "Restart now",
             };
             restartButton.Click += (_, _) =>
             {
@@ -48,20 +48,17 @@ namespace UniGetUI.Interface
                 else
                 {
                     restartButton.IsEnabled = true;
-                    AdminWarningBanner.Message =
-                   "The restart was cancelled or otherwise failed. " +
-                   "Please try again.";
+                    AdminWarningBanner.Severity = InfoBarSeverity.Error;
+                    AdminWarningBanner.Message = "There was a problem. Please try again.";
                 }
             };
-
-            AdminWarningBanner.Title = "Administrator privileges recommended";
-            AdminWarningBanner.Message =
-                "Most package management operations require administrator privileges. " +
-                "It is advisable to restart UniGetUI with administrator privileges. " +
-                "Limited functionality, such as package searching, remains available.";
+            AdminWarningBanner.Title = "Limited functionality";
+            AdminWarnBanner.Message =
+            "Many package management operations require UniGetUI to be elevated. " +
+            "Restart UniGetUI with administrator privileges to enable full functionality.";
             AdminWarningBanner.Severity = InfoBarSeverity.Warning;
             AdminWarningBanner.ActionButton = restartButton;
-            AdminWarningBanner.IsClosable = true;
+            AdminWarningBanner.IsClosable = false;
             AdminWarningBanner.IsOpen = true;
         }
         public XamlRoot XamlRoot

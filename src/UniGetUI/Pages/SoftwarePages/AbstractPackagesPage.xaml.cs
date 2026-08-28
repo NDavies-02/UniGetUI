@@ -396,7 +396,7 @@ namespace UniGetUI.Interface
                 BackgroundText.Visibility = Visibility.Collapsed;
             }
 
-            _searchPlaceholder = CoreTools.Translate("Search for packages");
+            _searchPlaceholder = CoreTools.Translate("Search packages...");
             MegaQueryBlock.PlaceholderText = _searchPlaceholder;
             InstantSearchCheckbox.IsChecked = !Settings.GetDictionaryItem<string, bool>(
                 Settings.K.DisableInstantSearch,
@@ -1068,19 +1068,17 @@ namespace UniGetUI.Interface
             {
                 string r =
                     CoreTools.Translate(
-                        "{0} packages were found, {1} of which match the specified filters.",
+                        "{0} packages found. | {1} match the specified filters. |",
                         FilteredPackages.Count,
                         Loader.Count()
                     )
-                    + " ("
-                    + CoreTools.Translate("{0} selected", selected)
-                    + ")";
+                    + CoreTools.Translate(" {0} packages selected", selected);
 
                 if (SHOW_LAST_CHECKED_TIME)
                     r +=
                         " "
                         + CoreTools.Translate(
-                            "(Last checked: {0})",
+                            "| Last checked at: {0}",
                             LastPackageLoadTime.ToString(CultureInfo.CurrentCulture)
                         );
                 return r;
