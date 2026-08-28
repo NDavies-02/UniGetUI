@@ -215,7 +215,6 @@ namespace UniGetUI.Interface.SoftwarePages
             AppBarButton SharePackage = new();
             AppBarButton HelpButton = new();
 
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(NewBundle);
             ToolBar.PrimaryCommands.Add(OpenBundle);
             ToolBar.PrimaryCommands.Add(SaveBundle);

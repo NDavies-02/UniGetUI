@@ -8,7 +8,9 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
+  Loaded="SettingsHomepage_Loaded"
   NavigationCacheMode="Required"
+  Unloaded="SettingsHomepage_Unloaded"
   mc:Ignorable="d"
 >
   <ScrollViewer
@@ -34,7 +36,7 @@
       <widgets:SettingsPageButton
         x:Name="InterfaceSettingsExpander"
         Click="Interface"
-        CornerRadius="8,8,0,0"
+        CornerRadius="8"
         Icon="interactive"
         Text="User interface"
         UnderText="Theme, system tray, package lists"
@@ -44,9 +46,8 @@
         
       <widgets:SettingsPageButton
         x:Name="NotificationSettingsEntry"
-        BorderThickness="1,0,1,1"
         Click="Notifications"
-        CornerRadius="0,0,8,8"
+        CornerRadius="8"
         Icon="megaphone"
         Text="Notifications"
         UnderText="Event-based notifications"
@@ -115,7 +116,7 @@
       <widgets:SettingsPageButton
         x:Name="InternetSettings"
         Click="Internet"
-        CornerRadius="8,8,0,0"
+        CornerRadius="8"
         Icon="Search"
         Text="Internet connection"
         UnderText="Proxy settings and internet waiting"
@@ -129,9 +130,8 @@
         
       <widgets:SettingsPageButton
         x:Name="ExperimentalSettingsExpander"
-        BorderThickness="1,0,1,1"
         Click="Experimental"
-        CornerRadius="0,0,8,8"
+        CornerRadius="8"
         Icon="experimental"
         Text="Advanced"
         UnderText="Recommended for advanced users only"
