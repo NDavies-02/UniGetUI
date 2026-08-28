@@ -273,7 +273,6 @@ namespace UniGetUI.Interface
                 PageType.Installed => InstalledNavBtn,
                 PageType.Bundles => BundlesNavBtn,
                 PageType.Settings => SettingsNavBtn,
-                PageType.Managers => ManagersNavBtn,
                 _ => MoreNavBtn,
             };
             _lastNavItemSelectionWasAuto = false;
