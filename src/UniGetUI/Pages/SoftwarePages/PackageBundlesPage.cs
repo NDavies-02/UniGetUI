@@ -227,8 +227,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
             ToolBar.PrimaryCommands.Add(SharePackage);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(HelpButton);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -245,7 +243,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { AddPackagesToBundle, CoreTools.Translate("Add packages to bundle") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
                 { SharePackage, " " + CoreTools.Translate("Share") },
-                { HelpButton, CoreTools.Translate("Help") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()

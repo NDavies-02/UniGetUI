@@ -1244,7 +1244,7 @@
             Padding="16,8,10,8"
             x:FieldModifier="protected"
             CornerRadius="8,0,0,8"
-            FontSize="24"
+            FontSize="20"
             FontWeight="SemiBold"
           />
           <Button

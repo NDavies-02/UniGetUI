@@ -201,12 +201,10 @@ namespace UniGetUI.Interface.SoftwarePages
             }
 
             ContextMenu.Items.Add(menuInstall);
-            ContextMenu.Items.Add(new MenuFlyoutSeparator());
-            ContextMenu.Items.Add(menuInstallSettings);
-            ContextMenu.Items.Add(MenuOpenInstallLocation);
-            ContextMenu.Items.Add(new MenuFlyoutSeparator());
             ContextMenu.Items.Add(MenuAsAdmin);
             ContextMenu.Items.Add(MenuInteractive);
+            ContextMenu.Items.Add(menuInstallSettings);
+            ContextMenu.Items.Add(new MenuFlyoutSeparator());
             ContextMenu.Items.Add(MenuskipHash);
             ContextMenu.Items.Add(MenuDownloadInstaller);
             ContextMenu.Items.Add(new MenuFlyoutSeparator());
@@ -218,6 +216,7 @@ namespace UniGetUI.Interface.SoftwarePages
             ContextMenu.Items.Add(menuPause);
             ContextMenu.Items.Add(new MenuFlyoutSeparator());
             ContextMenu.Items.Add(menuShare);
+            ContextMenu.Items.Add(MenuOpenInstallLocation);
             ContextMenu.Items.Add(menuDetails);
 
             return ContextMenu;
@@ -272,25 +271,19 @@ namespace UniGetUI.Interface.SoftwarePages
             MainToolbarButtonText.Text = CoreTools.Translate("Update selection");
 
             AppBarButton InstallationSettings = new();
-
             AppBarButton PackageDetails = new();
             AppBarButton SharePackage = new();
-
             AppBarButton IgnoreSelected = new();
             AppBarButton ManageIgnored = new();
 
-            AppBarButton HelpButton = new();
-
+            ToolBar.PrimaryCommands.Add(InstallationSettings);        
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(InstallationSettings);
+            ToolBar.PrimaryCommands.Add(IgnoreSelected);
+            ToolBar.PrimaryCommands.Add(ManageIgnored);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(SharePackage);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(IgnoreSelected);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(ManageIgnored);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a leading space are collapsed

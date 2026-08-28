@@ -25,38 +25,41 @@
         x:Name="GeneralSettingsExpander"
         Click="General"
         Icon="settings"
-        Text="General preferences"
-        UnderText="Language, UniGetUI updates, backup and restore"
+        Text="General"
+        UnderText="Language, UniGetUI updater, backup and restore your settings"
       />
-
+        
       <UserControl Height="16" />
-
+        
       <widgets:SettingsPageButton
         x:Name="InterfaceSettingsExpander"
         Click="Interface"
         CornerRadius="8,8,0,0"
         Icon="interactive"
-        Text="User interface preferences"
-        UnderText="Application theme, system tray configuration, package lists"
+        Text="User interface"
+        UnderText="Theme, system tray, package lists"
       />
-
+        
+       <UserControl Height="16" />
+        
       <widgets:SettingsPageButton
         x:Name="NotificationSettingsEntry"
         BorderThickness="1,0,1,1"
         Click="Notifications"
         CornerRadius="0,0,8,8"
         Icon="megaphone"
-        Text="Notification preferences"
+        Text="Notifications"
         UnderText="Event-based notifications"
       />
 
       <UserControl Height="16" />
+        
       <widgets:SettingsPageButton
         x:Name="AdminSettingsExpander"
         Click="Administrator"
         CornerRadius="8"
         Icon="uac"
-        Text="Administrator rights and package operation restrictions"
+        Text="Operational restrictions"
         UnderText="UAC prompts, package operation restrictions, package manager restrictions"
       />
 
@@ -67,8 +70,8 @@
         Click="Operations"
         CornerRadius="8,8,0,0"
         Icon="Package"
-        Text="Package operation preferences"
-        UnderText="Change how UniGetUI handles install, update and uninstall operations."
+        Text="Package operations"
+        UnderText="Handling of install, update and uninstall operations"
       />
 
       <widgets:SettingsPageButton
@@ -77,8 +80,8 @@
         Click="Startup"
         CornerRadius="0,0,8,8"
         Icon="update"
-        Text="Package update preferences"
-        UnderText="Update check frequency, automatically install updates, etc."
+        Text="Package updates"
+        UnderText="Package update check frequency, automatic install of package updates"
       />
 
       <UserControl Height="16" />
@@ -88,8 +91,8 @@
         Click="Backup"
         CornerRadius="8"
         Icon="disk"
-        Text="Package backup"
-        UnderText="Automatically save a list of all your installed packages to easily restore them."
+        Text="Package list backup"
+        UnderText="Backup a list of your installed packages"
       />
 
       <UserControl Height="16" />
@@ -99,8 +102,8 @@
         Click="ManagersShortcut"
         CornerRadius="8"
         Icon="Search"
-        Text="Package manager preferences"
-        UnderText="Enable and disable package managers, change default install options, etc."
+        Text="Package manager configuration"
+        UnderText="Enable and disable package managers, change default installation options"
       >
         <widgets:SettingsPageButton.HeaderIcon>
           <FontIcon FontSize="12" Glyph="&#xE835;" />
@@ -114,7 +117,7 @@
         Click="Internet"
         CornerRadius="8,8,0,0"
         Icon="Search"
-        Text="Internet connection settings"
+        Text="Internet connection"
         UnderText="Proxy settings and internet waiting"
       >
         <widgets:SettingsPageButton.HeaderIcon>
@@ -122,13 +125,15 @@
         </widgets:SettingsPageButton.HeaderIcon>
       </widgets:SettingsPageButton>
 
+       <UserControl Height="16" />
+        
       <widgets:SettingsPageButton
         x:Name="ExperimentalSettingsExpander"
         BorderThickness="1,0,1,1"
         Click="Experimental"
         CornerRadius="0,0,8,8"
         Icon="experimental"
-        Text="Advanced settings"
+        Text="Advanced"
         UnderText="Recommended for advanced users only"
       />
     </StackPanel>

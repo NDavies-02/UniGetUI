@@ -24,15 +24,6 @@
         Text="Translators"
       />
       <widgets:TranslatedTextBlock Text="WingetUI has been translated to more than 40 languages thanks to the volunteer translators. Thank you 🤝" />
-      <HyperlinkButton
-        Grid.Column="2"
-        Margin="0,4,0,4"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Center"
-        NavigateUri="https://github.com/Devolutions/UniGetUI/wiki#translating-wingetui"
-      >
-        <widgets:TranslatedTextBlock Text="Become a translator" />
-      </HyperlinkButton>
       <TextBlock />
       <ListView ItemsSource="{x:Bind TranslatorList}" SelectionMode="None">
         <ListView.ItemTemplate>

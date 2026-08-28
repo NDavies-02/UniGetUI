@@ -344,13 +344,7 @@
           </AnimatedIcon>
         </controls1:CustomNavViewItem.Icon>
       </controls1:CustomNavViewItem>
-      <controls1:CustomNavViewItem
-        x:Name="ManagersNavBtn"
-        GlyphIcon="&#xE835;"
-        IconSize="20"
-        Tag="Managers"
-        Text="Package managers"
-      />
+      
       <controls1:CustomNavViewItem
         x:Name="MoreNavBtn"
         Icon="More"

@@ -184,15 +184,10 @@ namespace UniGetUI.Interface.SoftwarePages
             MainToolbarButtonText.Text = CoreTools.Translate("Install selection");
 
             AppBarButton InstallationSettings = new();
-
             AppBarButton PackageDetails = new();
             AppBarButton SharePackage = new();
-
             AppBarButton ExportSelection = new();
 
-            AppBarButton HelpButton = new();
-
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(InstallationSettings);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);

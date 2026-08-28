@@ -1068,9 +1068,10 @@ namespace UniGetUI.Interface
             {
                 string r =
                     CoreTools.Translate(
-                        "{0} packages found. | {1} match the specified filters. |",
-                        FilteredPackages.Count,
-                        Loader.Count()
+                        "{0} packages found | {1} match the specified filters |",
+                        Loader.Count(),
+                        FilteredPackages.Count
+                        
                     )
                     + CoreTools.Translate(" {0} packages selected", selected);
 
