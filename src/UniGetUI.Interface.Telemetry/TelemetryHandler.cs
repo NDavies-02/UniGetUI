@@ -156,6 +156,7 @@ public static class TelemetryHandler
                     $"[Telemetry] Call to /bundles/{endpoint} failed with error code {response.StatusCode}"
                 );
             }
+        }
         catch (Exception ex)
         {
             Logger.Error($"[Telemetry] Hard crash when calling /bundles/{endpoint}");
