@@ -354,6 +354,12 @@ namespace UniGetUI
                 );
                 MainWindow.SwitchToInterface();
 
+                //New version of admin check, if not admin, banner is displayed in main window
+                if (!CoreTools.IsAdministrator())
+                {
+                    MainWindow.ShowAdministratorWarning();
+                }
+
                 RaiseExceptionAsFatal = false;
 
                 // Process any remaining command-line arguments

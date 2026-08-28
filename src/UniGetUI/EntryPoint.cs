@@ -1,7 +1,5 @@
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Security.Principal;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
@@ -12,31 +10,12 @@ namespace UniGetUI
 {
     public static class EntryPoint
     {
-        private const uint MessageBoxYesNo = 0x00000004;
-        private const uint MessageBoxIconQuestion = 0x00000020;
-        private const uint MessageBoxIconError = 0x00000010;
-        private const int MessageBoxResultYes = 6;
-
-        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        private static extern int MessageBox(
-            nint hWnd,
-            string text,
-            string caption,
-            uint type
-        );
-
         [STAThread]
         private static void Main(string[] args)
         {
             // Having an async main method breaks WebView2
             try
             {
-                if (!EnsureAdministrator())
-                {
-                    Environment.Exit(0);
-                    return;
-                }
-
                 if (args.Contains(CLIHandler.HELP))
                 {
                     CLIHandler.Help();
@@ -112,28 +91,8 @@ namespace UniGetUI
             }
         }
 
-        private static bool EnsureAdministrator()
+        public static bool RestartAsAdministrator() 
         {
-            using WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new(identity);
-
-            if (principal.IsInRole(WindowsBuiltInRole.Administrator))
-            {
-                return true;
-            }
-
-            int result = MessageBox(
-                nint.Zero,
-                "UniGetUI needs administrator privileges to run. Restart the application as administrator?",
-                "Administrator privileges required",
-                MessageBoxYesNo | MessageBoxIconQuestion
-            );
-
-            if (result != MessageBoxResultYes)
-            {
-                return false;
-            }
-
             try
             {
                 string? executablePath = Environment.ProcessPath;
@@ -142,7 +101,7 @@ namespace UniGetUI
                     return false;
                 }
 
-                ProcessStartInfo startInfo = new()
+                ProcessStartInfo startInfo = new() //Launch elevated process
                 {
                     FileName = executablePath,
                     Verb = "runas",
@@ -156,7 +115,7 @@ namespace UniGetUI
                 }
 
                 Process.Start(startInfo);
-                return false;
+                return true;
             }
             catch (Win32Exception)
             {
@@ -165,13 +124,8 @@ namespace UniGetUI
             }
             catch (Exception ex)
             {
-                MessageBox(
-                    nint.Zero,
-                    $"Could not restart UniGetUI as administrator:\n\n{ex.Message}",
-                    "Unable to restart",
-                    MessageBoxIconError
-                );
-
+                Logger.Error("Could not restart UniGetUI as administrator.");
+                Logger.Error(ex);
                 return false;
             }
         }
@@ -189,7 +143,7 @@ namespace UniGetUI
                      / / / / __ \/ / / __/ _ \/ __/ / / // /
                     / /_/ / / / / / /_/ /  __/ /_/ /_/ // /
                     \____/_/ /_/_/\____/\___/\__/\____/___/
-                        Welcome to UniGetUI Version {CoreData.VersionName}
+                        Welcome to UniGetUI (NDavies-02 Fork)Version {CoreData.VersionName}
                     """;
 
                 Logger.ImportantInfo(textart);
@@ -230,8 +184,6 @@ namespace UniGetUI
         {
             try
             {
-                // IDK how does this work, I copied it from the MS Docs
-                // example on single-instance apps using unpackaged AppSdk + WinUI3
                 bool isRedirect = false;
 
                 var keyInstance = AppInstance.FindOrRegisterForKey(CoreData.MainWindowIdentifier);

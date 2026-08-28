@@ -32,6 +32,38 @@ namespace UniGetUI.Interface
 {
     public sealed partial class MainWindow : Window
     {
+        public void ShowAdministratorWarning() //Display a banner warning of lack of admin rights w/ restart button
+        {
+            Button restartButton = new()
+            {
+                Content = "Restart as administrator",
+            };
+            restartButton.Click += (_, _) =>
+            {
+                restartButton.IsEnabled = false;
+                if (EntryPoint.RestartAsAdministrator())
+                {
+                    Close(); // Close unelevated instance
+                }
+                else
+                {
+                    restartButton.IsEnabled = true;
+                    AdminWarningBanner.Message =
+                   "The restart was cancelled or otherwise failed. " +
+                   "Please try again.";
+                }
+            };
+
+            AdminWarningBanner.Title = "Administrator privileges recommended";
+            AdminWarningBanner.Message =
+                "Most package management operations require administrator privileges. " +
+                "It is advisable to restart UniGetUI with administrator privileges. " +
+                "Limited functionality, such as package searching, remains available.";
+            AdminWarningBanner.Severity = InfoBarSeverity.Warning;
+            AdminWarningBanner.ActionButton = restartButton;
+            AdminWarningBanner.IsClosable = true;
+            AdminWarningBanner.IsOpen = true;
+        }
         public XamlRoot XamlRoot
         {
             get => MainContentGrid.XamlRoot;
