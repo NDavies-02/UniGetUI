@@ -26,27 +26,8 @@ public enum TEL_OP_RESULT
 
 public static class TelemetryHandler
 {
-    private const string HOST = "http://localhost:3000";
-    private const string HOST = "https://marticliment.com/unigetui/statistics";
-
-    // Force-disable telemetry at runtime. Set to false to re-enable.
+    // Force-disable telemetry as the implementation has been removed deliberately.
     private const bool FORCE_DISABLE_TELEMETRY = true;
-
-    private static readonly Settings.K[] SettingsToSend =
-    [
-        Settings.K.DisableAutoUpdateWingetUI,
-        Settings.K.EnableUniGetUIBeta,
-        Settings.K.DisableSystemTray,
-        Settings.K.DisableNotifications,
-        Settings.K.DisableAutoCheckforUpdates,
-        Settings.K.AutomaticallyUpdatePackages,
-        Settings.K.AskToDeleteNewDesktopShortcuts,
-        Settings.K.EnablePackageBackup_LOCAL,
-        Settings.K.DoCacheAdminRights,
-        Settings.K.DoCacheAdminRightsForBatches,
-        Settings.K.ForceLegacyBundledWinGet,
-        Settings.K.UseSystemChocolatey,
-    ];
 
     // -------------------------------------------------------------------------
 
@@ -60,12 +41,6 @@ public static class TelemetryHandler
                 return;
             }
             //TELEMETRY REMOVED
-            else
-            {
-                Logger.Warn(
-                    $"[Telemetry] Call to /activity failed with error code {response.StatusCode}"
-                );
-            }
         }
         catch (Exception ex)
         {
@@ -115,12 +90,6 @@ public static class TelemetryHandler
                 return;
             }
             //TELEMETRY REMOVED
-            else
-            {
-                Logger.Warn(
-                    $"[Telemetry] Call to /package/{endpoint} failed with error code {response.StatusCode}"
-                );
-            }
         }
         catch (Exception ex)
         {
@@ -150,29 +119,11 @@ public static class TelemetryHandler
             }
 
             //TELEMETRY REMOVED
-            else
-            {
-                Logger.Warn(
-                    $"[Telemetry] Call to /bundles/{endpoint} failed with error code {response.StatusCode}"
-                );
-            }
         }
         catch (Exception ex)
         {
             Logger.Error($"[Telemetry] Hard crash when calling /bundles/{endpoint}");
             Logger.Error(ex);
         }
-    }
-
-    private static string GetRandomizedId()
-    {
-        string ID = Settings.GetValue(Settings.K.TelemetryClientToken);
-        if (ID.Length != 64)
-        {
-            ID = CoreTools.RandomString(64);
-            Settings.SetValue(Settings.K.TelemetryClientToken, ID);
-        }
-
-        return ID;
     }
 }
