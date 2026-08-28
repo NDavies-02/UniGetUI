@@ -53,7 +53,7 @@ namespace UniGetUI.Interface
                 }
             };
             AdminWarningBanner.Title = "Limited functionality";
-            AdminWarnBanner.Message =
+            AdminWarningBanner.Message =
             "Many package management operations require UniGetUI to be elevated. " +
             "Restart UniGetUI with administrator privileges to enable full functionality.";
             AdminWarningBanner.Severity = InfoBarSeverity.Warning;
