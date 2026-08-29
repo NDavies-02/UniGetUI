@@ -208,11 +208,11 @@ namespace UniGetUI.Interface.SoftwarePages
             MainToolbarButtonText.Text = CoreTools.Translate("Uninstall selection");
 
             AppBarButton InstallationSettings = new();
-            AppBarButton PackageDetails = new();
-            AppBarButton SharePackage = new();
             AppBarButton IgnoreSelected = new();
             AppBarButton ManageIgnored = new();
+            AppBarButton PackageDetails = new();
             AppBarButton ExportSelection = new();
+            AppBarButton SharePackage = new();
 
             ToolBar.PrimaryCommands.Add(InstallationSettings);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
@@ -232,7 +232,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 { UninstallAsAdmin, CoreTools.Translate("Uninstall as administrator") },
                 { UninstallInteractive, CoreTools.Translate("Interactive uninstall") },
                 { DownloadInstallers, CoreTools.Translate("Download selected installers") },
-                { InstallationSettings, " " + CoreTools.Translate("Uninstall options") },
+                { InstallationSettings, CoreTools.Translate("Uninstall options") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
                 { SharePackage, " " + CoreTools.Translate("Share") },
                 { IgnoreSelected, CoreTools.Translate("Ignore selected packages") },
