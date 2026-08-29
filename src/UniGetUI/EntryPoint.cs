@@ -91,7 +91,7 @@ namespace UniGetUI
             }
         }
 
-        public static bool RestartAsAdministrator() 
+        public static bool RestartAsAdministrator()
         {
             try
             {
@@ -101,7 +101,7 @@ namespace UniGetUI
                     return false;
                 }
 
-                ProcessStartInfo startInfo = new() //Launch elevated process
+                ProcessStartInfo startInfo = new() // Launch elevated process
                 {
                     FileName = executablePath,
                     Verb = "runas",
@@ -109,10 +109,14 @@ namespace UniGetUI
                     WorkingDirectory = AppContext.BaseDirectory,
                 };
 
+                // Add existing args
                 foreach (string argument in Environment.GetCommandLineArgs().Skip(1))
                 {
                     startInfo.ArgumentList.Add(argument);
                 }
+
+                // Add an explicit marker so the new elevated instance can avoid single-instance redirection
+                startInfo.ArgumentList.Add(CLIHandler.RESTARTED_AS_ADMIN);
 
                 Process.Start(startInfo);
                 return true;
@@ -143,7 +147,7 @@ namespace UniGetUI
                      / / / / __ \/ / / __/ _ \/ __/ / / // /
                     / /_/ / / / / / /_/ /  __/ /_/ /_/ // /
                     \____/_/ /_/_/\____/\___/\__/\____/___/
-                        Welcome to UniGetUI (NDavies-02 Fork)Version {CoreData.VersionName}
+                        Welcome to UniGetUI (NDavies-02 Fork) v{CoreData.VersionName}
                     """;
 
                 Logger.ImportantInfo(textart);
@@ -178,7 +182,9 @@ namespace UniGetUI
         }
 
         /// <summary>
-        /// Default WinUI Redirector
+        /// WinUI Redirector has been changed to handle admin restarts whilst preserving single-instance behaviour
+        /// In short, restarted instance attempts to become main instance, failing that, use unique identifier key
+        /// Which key is used is time-based: the original instance needs to close quickly enough so that the elevated instance can acquire the main key
         /// </summary>
         private static async Task<bool> DecideRedirection()
         {
@@ -186,7 +192,42 @@ namespace UniGetUI
             {
                 bool isRedirect = false;
 
-                var keyInstance = AppInstance.FindOrRegisterForKey(CoreData.MainWindowIdentifier);
+                var args = Environment.GetCommandLineArgs();
+                bool restartAsAdminMarker = args.Any(a => a == CLIHandler.RESTARTED_AS_ADMIN);
+
+                string registerKey = CoreData.MainWindowIdentifier;
+                AppInstance keyInstance;
+
+                if (restartAsAdminMarker) // If this is a "restarted as admin" instance from the banner prompt...
+                {
+                    // Acquire the normal main key for a short period so the elevated instance becomes the canonical instance.
+                    const int maxAttempts = 10; // ~1s total (10 * 100ms from Task.Delay)
+                    int attempts = 0;
+                    while (true) // Keep checking what key the elevated instance is using
+                    {
+                        keyInstance = AppInstance.FindOrRegisterForKey(registerKey); // Attempt to acquire the main key
+                        if (keyInstance.IsCurrent) //If successful...
+                        {
+                            // ...we successfully became the main instance
+                            break;
+                        }
+
+                        attempts++;
+                        if (attempts >= maxAttempts) // Once attempts exceeded, give up, use a unique key
+                        {
+                            registerKey = CoreData.MainWindowIdentifier + "-elevated-" + Environment.ProcessId;
+                            keyInstance = AppInstance.FindOrRegisterForKey(registerKey);
+                            break;
+                        }
+
+                        await Task.Delay(100);
+                    }
+                }
+                else
+                {
+                    keyInstance = AppInstance.FindOrRegisterForKey(registerKey);
+                }
+
                 if (keyInstance.IsCurrent)
                 {
                     keyInstance.Activated += async (_, e) =>
@@ -200,9 +241,10 @@ namespace UniGetUI
                 else
                 {
                     isRedirect = true;
-                    AppActivationArguments args = AppInstance.GetCurrent().GetActivatedEventArgs();
-                    await keyInstance.RedirectActivationToAsync(args);
+                    AppActivationArguments argsActivation = AppInstance.GetCurrent().GetActivatedEventArgs();
+                    await keyInstance.RedirectActivationToAsync(argsActivation);
                 }
+
                 return isRedirect;
             }
             catch (Exception e)

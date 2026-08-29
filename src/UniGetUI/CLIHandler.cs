@@ -26,6 +26,9 @@ public static class CLIHandler
     public const string ENABLE_SECURE_SETTING_FOR_USER = SecureSettings.Args.ENABLE_FOR_USER;
     public const string DISABLE_SECURE_SETTING_FOR_USER = SecureSettings.Args.DISABLE_FOR_USER;
 
+    //Unique to this fork, this argument is used in EntryPoint.cs/DecideRedirection()
+    public const string RESTARTED_AS_ADMIN = "--restarted-as-admin";
+
     private enum HRESULT
     {
         SUCCESS = 0,
