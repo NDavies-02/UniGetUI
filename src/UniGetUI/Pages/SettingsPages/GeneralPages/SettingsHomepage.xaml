@@ -54,18 +54,7 @@
       />
 
       <UserControl Height="16" />
-        
-      <widgets:SettingsPageButton
-        x:Name="AdminSettingsExpander"
-        Click="Administrator"
-        CornerRadius="8"
-        Icon="uac"
-        Text="Operational restrictions"
-        UnderText="UAC prompts, package operation restrictions, package manager restrictions"
-      />
-
-      <UserControl Height="16" />
-
+       
       <widgets:SettingsPageButton
         x:Name="UpdatesOptionsExpander"
         Click="Operations"
@@ -125,6 +114,17 @@
           <FontIcon FontSize="12" Glyph="&#xE839;" />
         </widgets:SettingsPageButton.HeaderIcon>
       </widgets:SettingsPageButton>
+
+       <UserControl Height="16" />
+
+        <widgets:SettingsPageButton
+        x:Name="AdminSettingsExpander"
+        Click="Administrator"
+        CornerRadius="8"
+        Icon="uac"
+        Text="Operational restrictions"
+        UnderText="Package operation/manager restrictions, package bundle restrictions"
+      />
 
        <UserControl Height="16" />
         
