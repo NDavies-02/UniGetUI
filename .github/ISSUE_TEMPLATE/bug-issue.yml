@@ -17,7 +17,7 @@ body:
   - type: input
     attributes:
       label: UniGetUI Version
-      placeholder: 'x.y.z (e.g., 3.1.0)'
+      placeholder: 'x.y.z (e.g., 5.1.0)'
     validations:
       required: true
   - type: input
@@ -49,9 +49,9 @@ body:
     attributes:
       label: Package Managers Logs
       render: "text"
-      placeholder: Paste your Package Manager logs here. Click the button on the bottom-left corner of UniGetUI -> Package Manager logs.
+      placeholder: Paste your Package Manager logs here if the issue relates to package management. Click the button on the bottom-left corner of UniGetUI -> Package Manager logs.
     validations:
-      required: true
+      required: false
   - type: textarea
     attributes:
       label: Relevant information

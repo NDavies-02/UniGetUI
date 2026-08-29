@@ -12,7 +12,7 @@ body:
           required: true
         - label: I have tried reinstalling UniGetUI.
           required: true
-        - label: I have tested that this issue has not been fixed in the latest [(beta or stable) release](https://github.com/Devolutions/UniGetUI/releases/).
+        - label: I have tested that this issue has not been fixed in the [latest release](https://github.com/NDavies-02/UniGetUI/releases/).
           required: true
   - type: textarea
     attributes:

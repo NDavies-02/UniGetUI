@@ -1,4 +1,4 @@
-name: Build Unsigned/Untested
+name: Build Unsigned
 permissions:
   contents: read
   actions: write
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version (required, e.g. 4.1.0)'
+        description: 'Release version (required, e.g. 5.1.0)'
         required: true
       draft-release:
         description: 'Create the GitHub Release as a draft'
@@ -23,7 +23,7 @@ on:
         description: 'Dry run (simulate without publishing)'
         required: true
         type: boolean
-        default: true
+        default: false
 
 jobs:
   preflight:
