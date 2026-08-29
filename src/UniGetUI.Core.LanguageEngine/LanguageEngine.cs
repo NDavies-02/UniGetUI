@@ -114,7 +114,7 @@ namespace UniGetUI.Core.Language
 
                 if (Settings.Get(Settings.K.DisableLangAutoUpdater))
                 {
-                    Logger.Warn("User has updated translations disabled");
+                    Logger.Warn("Updated translations disabled");
                 }
                 else if (!File.Exists(CachedLangFileToLoad))
                 {
@@ -151,7 +151,7 @@ namespace UniGetUI.Core.Language
                 }
 
                 if (!Settings.Get(Settings.K.DisableLangAutoUpdater))
-                    _ = DownloadUpdatedLanguageFile(LangKey);
+                    Logger.Warn("Updated translations disabled");
 
                 return LangDict;
             }
