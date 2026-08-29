@@ -261,9 +261,6 @@ namespace UniGetUI.Interface
         private void SettingsNavButton_Click(object sender, EventArgs e) =>
             NavigateTo(PageType.Settings);
 
-        private void ManagersNavButton_Click(object sender, EventArgs e) =>
-            NavigateTo(PageType.Managers);
-
         private bool _lastNavItemSelectionWasAuto;
 
         private void SelectNavButtonForPage(PageType page)
@@ -276,7 +273,6 @@ namespace UniGetUI.Interface
                 PageType.Installed => InstalledNavBtn,
                 PageType.Bundles => BundlesNavBtn,
                 PageType.Settings => SettingsNavBtn,
-                PageType.Managers => ManagersNavBtn,
                 _ => MoreNavBtn,
             };
             _lastNavItemSelectionWasAuto = false;

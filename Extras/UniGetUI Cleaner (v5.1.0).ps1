@@ -157,6 +157,7 @@ $itemsToDelete = @(
     "C:/Program Files/UniGetUI/Assets/Languages/lang_zh_CN.json",
     "C:/Program Files/UniGetUI/Assets/Languages/lang_zh_TW.json",
     "C:/Program Files/UniGetUI/WingetUI.exe",
+    "C:/Program Files/UniGetUI/UniGetUI.Installer.exe",
     "$env:LOCALAPPDATA/UniGetUI/CachedLanguageFiles",
     "$env:LOCALAPPDATA/UniGetUI/CachedMedia",
     "$env:LOCALAPPDATA/UniGetUI/CachedMetadata",

@@ -3,10 +3,8 @@
 | Parameter ____________________________________ | Description | Compatible versions  ______________  |
 | ---------------------- | ---------- | ------- |
 | `--daemon` | Start UniGetUI without spawning a new window. UniGetUI will run minimized on the system tray. UniGetUI is called with this parameter when launched at startup. **Autostart UniGetUI in the notifications area must be enabled for this parameter to work.** | 1.0+ |
-| `--welcome` | Shows the user the Setup Wizard | up to 2.2.0 |
 | `--updateapps` | Force enable automatic installation of available updates | 1.6.0+ |
 | `--report-all-errors` | Will force UniGetUI to show the error report page on any crash when loading | 3.0.0+ |
-| `--uninstall-unigetui` | Will unregister UniGetUI from the notification panel, and silently quit | from 3.1.0 to 3.1.8 |
 | `--migrate-wingetui-to-unigetui` | Will migrate WingetUI data folders and shortcuts to UniGetUI (if possible), and silently quit | 3.1.0+ |
 | `UniGetUI.exe file` | Provided that the file is a valid bundle, will load the bundle into the Package Bundles page. Compatible bundle files include the following extensions: `.ubundle`, `.json`, `.yaml`, `.xml` | 3.1.2+ |
 | `--help` | Opens this page | 3.2.0+ |
@@ -18,8 +16,8 @@
 | `--[enable\|disable]-secure-setting-for-user username key` | Enables/disables the given secure setting for the given key<sup>2</sup> and username. Requires administrator rights.  | 3.2.1+ | 
 | `--[enable\|disable]-secure-setting key` | Enables/disables the given secure setting<sup>2</sup> for current user. This will generate a UAC prompt  | 3.2.1+ | 
 
-1. See the available list of setting keys [here](https://github.com/Devolutions/UniGetUI/blob/fc98f312a72b80e14a8ac10687f4fc506a5c9cc4/src/UniGetUI.Core.Settings/SettingsEngine_Names.cs#L5)
-2. See the available list of secure settings keys [here](https://github.com/Devolutions/UniGetUI/blob/fc98f312a72b80e14a8ac10687f4fc506a5c9cc4/src/UniGetUI.Core.SecureSettings/SecureSettings.cs#L10)
+1. See the available list of setting keys [here](https://github.com/NDavies-02/UniGetUI/blob/fc98f312a72b80e14a8ac10687f4fc506a5c9cc4/src/UniGetUI.Core.Settings/SettingsEngine_Names.cs#L5)
+2. See the available list of secure settings keys [here](https://github.com/NDavies-02/UniGetUI/blob/fc98f312a72b80e14a8ac10687f4fc506a5c9cc4/src/UniGetUI.Core.SecureSettings/SecureSettings.cs#L10)
 
 
 \*After modifying the settings, you must ensure that any running instance of UniGetUI is restarted for the changes to take effect

@@ -1,5 +1,4 @@
-# UniGetUI - Copilot Instructions
-Fork note: This file is retained as helpful documentation.
+# UniGetUI - Repository Overview
 ## Project Overview
 
 UniGetUI is a WinUI 3 desktop app (C#/.NET 10, Windows App SDK) providing a GUI for CLI package managers (WinGet, Scoop, Chocolatey, Pip, Npm, .NET Tool, PowerShell Gallery, Cargo, Vcpkg). Solution lives in `src/UniGetUI.sln`.

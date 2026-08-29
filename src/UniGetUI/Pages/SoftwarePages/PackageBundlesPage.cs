@@ -215,7 +215,6 @@ namespace UniGetUI.Interface.SoftwarePages
             AppBarButton SharePackage = new();
             AppBarButton HelpButton = new();
 
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(NewBundle);
             ToolBar.PrimaryCommands.Add(OpenBundle);
             ToolBar.PrimaryCommands.Add(SaveBundle);
@@ -227,8 +226,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
             ToolBar.PrimaryCommands.Add(SharePackage);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(HelpButton);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -245,7 +242,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { AddPackagesToBundle, CoreTools.Translate("Add packages to bundle") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
                 { SharePackage, " " + CoreTools.Translate("Share") },
-                { HelpButton, CoreTools.Translate("Help") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()
@@ -436,28 +432,28 @@ namespace UniGetUI.Interface.SoftwarePages
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem]);
+            _ = ImportAndInstallPackage(new[] { SelectedItem });
         }
 
         private void MenuAsAdmin_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], elevated: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, elevated: true);
         }
 
         private void MenuInteractive_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], interactive: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, interactive: true);
         }
 
         private void MenuSkipHash_Invoked(object sender, RoutedEventArgs args)
         {
             if (SelectedItem is null)
                 return;
-            _ = ImportAndInstallPackage([SelectedItem], skiphash: true);
+            _ = ImportAndInstallPackage(new[] { SelectedItem }, skiphash: true);
         }
 
         private void MenuShare_Invoked(object sender, RoutedEventArgs args)
@@ -1027,7 +1023,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 Write-Host "NOTES:" -ForegroundColor Yellow
                 Write-Host "  - The install process will not be as reliable as importing a bundle with UniGetUI. Expect issues and errors." -ForegroundColor Yellow
                 Write-Host "  - Packages will be installed with the install options specified at the time of creation of this script." -ForegroundColor Yellow
-                Write-Host "  - Error/Sucess detection may not be 100% accurate." -ForegroundColor Yellow
+                Write-Host "  - Error/Success detection may not be 100% accurate." -ForegroundColor Yellow
                 Write-Host "  - Some of the packages may require elevation. Some of them may ask for permission, but others may fail. Consider running this script elevated." -ForegroundColor Yellow
                 Write-Host "  - You can skip confirmation prompts by running this script with the parameter `/DisablePausePrompts` " -ForegroundColor Yellow
                 Write-Host ""

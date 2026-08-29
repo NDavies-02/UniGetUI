@@ -25,7 +25,7 @@ The original UniGetUI was created by Martí Climent and is now maintained by Dev
 To install this fork of UniGetUI, you should download the [latest release from the Releases page](https://github.com/NDavies-02/WinGetUI/releases/latest). Identify the correct architecture (`arm64` or `x64`) and download the corresponding `UniGetUI.Installer.[arch].exe` file. Alternatively, portable `.zip` versions are available for both architectures.
 
 > [!Warning]  
-> The release is unsigned. Therefore, when installing, you will get the "Unknown Publisher" User Account Control dialogue.
+> The release is unsigned. Therefore, User Account Control dialogues will be the yellow, 'Unknown Publisher' dialog.
 
 ## UniGetUI Cleanup Script  
 The `UniGetUI Cleanup.ps1` PowerShell script performs the following actions:

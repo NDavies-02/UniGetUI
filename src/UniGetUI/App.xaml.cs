@@ -229,7 +229,7 @@ namespace UniGetUI
                                 "Something went wrong"
                             );
                             MainWindow.ErrorBanner.Message = CoreTools.Translate(
-                                "An interal error occurred. Please view the log for further details."
+                                "An internal error occurred. Please view the log for further details."
                             );
                             MainWindow.ErrorBanner.IsOpen = true;
                             Button button = new() { Content = CoreTools.Translate("WingetUI Log") };
@@ -332,7 +332,7 @@ namespace UniGetUI
                 // Create MainWindow
                 InitializeMainWindow();
 
-                IEnumerable<Task> iniTasks =
+                Task[] iniTasks =
                 [
                     Task.Run(PEInterface.LoadManagers), // Takes most of the time
                     Task.Run(SetUpWebViewUserDataFolder),
@@ -353,6 +353,12 @@ namespace UniGetUI
                     "LoadComponentsAsync finished executing. All managers loaded. Proceeding to interface."
                 );
                 MainWindow.SwitchToInterface();
+
+                //New version of admin check, if not admin, banner is displayed in main window
+                if (!CoreTools.IsAdministrator())
+                {
+                    MainWindow.ShowAdministratorWarning();
+                }
 
                 RaiseExceptionAsFatal = false;
 

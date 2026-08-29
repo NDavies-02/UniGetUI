@@ -39,30 +39,17 @@
         IsOpen="True"
         Severity="Warning"
       />
-
-      <widgets:TranslatedTextBlock
-        FontFamily="Segoe UI Variable Display"
-        FontSize="24"
-        FontWeight="Bold"
-        Text="Useful links"
-      />
+        <HyperlinkButton
+        HorizontalAlignment="Stretch"
+        NavigateUri="https://github.com/NDavies-02/UniGetUI/"
+      >
+            <widgets:TranslatedTextBlock Text="WingetUI Repository" />
+        </HyperlinkButton>
       <HyperlinkButton
         HorizontalAlignment="Stretch"
-        NavigateUri="https://www.marticliment.com/unigetui"
+        NavigateUri="https://github.com/NDavies-02/UniGetUI/issues/new/choose"
       >
-        <widgets:TranslatedTextBlock Text="WingetUI Homepage" />
-      </HyperlinkButton>
-      <HyperlinkButton
-        HorizontalAlignment="Stretch"
-        NavigateUri="https://github.com/Devolutions/UniGetUI/issues/new/choose"
-      >
-        <widgets:TranslatedTextBlock Text="Report an issue or submit a feature request" />
-      </HyperlinkButton>
-      <HyperlinkButton
-        HorizontalAlignment="Stretch"
-        NavigateUri="https://github.com/Devolutions/UniGetUI/"
-      >
-        <widgets:TranslatedTextBlock Text="WingetUI Repository" />
+        <widgets:TranslatedTextBlock Text="Report an issue" />
       </HyperlinkButton>
     </StackPanel>
   </ScrollView>

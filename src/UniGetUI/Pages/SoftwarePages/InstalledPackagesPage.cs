@@ -208,28 +208,23 @@ namespace UniGetUI.Interface.SoftwarePages
             MainToolbarButtonText.Text = CoreTools.Translate("Uninstall selection");
 
             AppBarButton InstallationSettings = new();
-
             AppBarButton PackageDetails = new();
             AppBarButton SharePackage = new();
-
             AppBarButton IgnoreSelected = new();
             AppBarButton ManageIgnored = new();
             AppBarButton ExportSelection = new();
 
-            AppBarButton HelpButton = new();
-
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(InstallationSettings);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(PackageDetails);
-            ToolBar.PrimaryCommands.Add(SharePackage);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(IgnoreSelected);
+            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(ManageIgnored);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(ExportSelection);
+            ToolBar.PrimaryCommands.Add(PackageDetails);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(HelpButton);
+            ToolBar.PrimaryCommands.Add(SharePackage);
+            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
+            ToolBar.PrimaryCommands.Add(ExportSelection);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -243,7 +238,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { IgnoreSelected, CoreTools.Translate("Ignore selected packages") },
                 { ManageIgnored, CoreTools.Translate("Manage ignored updates") },
                 { ExportSelection, CoreTools.Translate("Add selection to bundle") },
-                { HelpButton, CoreTools.Translate("Help") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()
@@ -257,7 +251,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { IgnoreSelected, IconType.Pin },
                 { ManageIgnored, IconType.ClipboardList },
                 { ExportSelection, IconType.AddTo },
-                { HelpButton, IconType.Help },
             };
 
             ApplyTextAndIconsToToolbar(Labels, Icons);
@@ -266,7 +259,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 ShowDetailsForPackage(SelectedItem, TEL_InstallReferral.ALREADY_INSTALLED);
 
             ExportSelection.Click += ExportSelection_Click;
-            HelpButton.Click += (_, _) => MainApp.Instance.MainWindow.NavigationPage.ShowHelp();
             InstallationSettings.Click += (_, _) =>
                 _ = ShowInstallationOptionsForPackage(SelectedItem);
             ManageIgnored.Click += async (_, _) => await DialogHelper.ManageIgnoredUpdates();

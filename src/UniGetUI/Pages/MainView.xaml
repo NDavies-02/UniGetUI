@@ -46,13 +46,6 @@
           IconName="megaphone"
           Text="Release notes"
         />
-        <MenuFlyoutSeparator Height="5" />
-        <widgets:BetterMenuItem
-          Name="HelpMenu"
-          Click="HelpMenu_Click"
-          IconName="help"
-          Text="Help"
-        />
         <widgets:BetterMenuItem
           Name="InfoMenu"
           Click="AboutNavButton_Click"
@@ -351,13 +344,7 @@
           </AnimatedIcon>
         </controls1:CustomNavViewItem.Icon>
       </controls1:CustomNavViewItem>
-      <controls1:CustomNavViewItem
-        x:Name="ManagersNavBtn"
-        GlyphIcon="&#xE835;"
-        IconSize="20"
-        Tag="Managers"
-        Text="Package managers"
-      />
+      
       <controls1:CustomNavViewItem
         x:Name="MoreNavBtn"
         Icon="More"

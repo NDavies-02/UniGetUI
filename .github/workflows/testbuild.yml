@@ -1,12 +1,13 @@
-name: Build, Sign, and Release
+name: Build for Testing
 permissions:
   contents: read
   actions: write
+
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version (required, e.g. 2026.1.0)'
+        description: 'Release version (required, e.g. 5.1.0)'
         required: true
       draft-release:
         description: 'Create the GitHub Release as a draft'
@@ -17,7 +18,7 @@ on:
         description: 'Skip publishing to GitHub Releases'
         required: true
         type: boolean
-        default: false
+        default: true
       dry-run:
         description: 'Dry run (simulate without publishing)'
         required: true
@@ -84,37 +85,22 @@ jobs:
           echo "::notice::DryRun: $DryRun"
 
   build:
-    name: Build & Sign (${{ matrix.platform }})
+    name: Build (no signing) (${{ matrix.platform }})
     runs-on: windows-latest
     needs: [preflight]
     environment: ${{ needs.preflight.outputs.package-env }}
     permissions:
       contents: read
     env:
-      UNIGETUI_GITHUB_CLIENT_ID: ${{ secrets.UNIGETUI_GITHUB_CLIENT_ID }}
-      UNIGETUI_GITHUB_CLIENT_SECRET: ${{ secrets.UNIGETUI_GITHUB_CLIENT_SECRET }}
       NUGET_PACKAGES: ${{ github.workspace }}\.nuget\packages
     strategy:
       fail-fast: false
       matrix:
-        platform: [x64, arm64]
+        platform: [x64]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
-      - name: Validate GitHub OAuth secrets
-        shell: pwsh
-        run: |
-          if ([string]::IsNullOrWhiteSpace($env:UNIGETUI_GITHUB_CLIENT_ID)) {
-            throw "UNIGETUI_GITHUB_CLIENT_ID is not configured for this build environment."
-          }
-
-          if ([string]::IsNullOrWhiteSpace($env:UNIGETUI_GITHUB_CLIENT_SECRET)) {
-            throw "UNIGETUI_GITHUB_CLIENT_SECRET is not configured for this build environment."
-          }
-
-          Write-Host "::notice::GitHub OAuth secrets are configured for this build."
 
       - name: Install .NET
         uses: actions/setup-dotnet@v6
@@ -139,18 +125,6 @@ jobs:
         run: |
           choco install innosetup -y --no-progress
           echo "C:\Program Files (x86)\Inno Setup 6" >> $Env:GITHUB_PATH
-
-      - name: Install code-signing tools
-        shell: pwsh
-        run: |
-          dotnet tool install --global AzureSignTool
-          Install-Module -Name Devolutions.Authenticode -Force
-
-          # Trust test code-signing CA
-          $TestCertsUrl = "https://raw.githubusercontent.com/Devolutions/devolutions-authenticode/master/data/certs"
-          Invoke-WebRequest -Uri "$TestCertsUrl/authenticode-test-ca.crt" -OutFile ".\authenticode-test-ca.crt"
-          Import-Certificate -FilePath ".\authenticode-test-ca.crt" -CertStoreLocation "cert:\LocalMachine\Root"
-          Remove-Item ".\authenticode-test-ca.crt" -ErrorAction SilentlyContinue | Out-Null
 
       - name: Set version
         shell: pwsh
@@ -185,18 +159,6 @@ jobs:
         working-directory: src
         run: dotnet restore UniGetUI.sln
 
-      - name: Run tests
-        working-directory: src
-        shell: pwsh
-        run: |
-          # Retry once to handle flaky tests (e.g. TaskRecyclerTests uses Random)
-          dotnet test UniGetUI.sln --no-restore --verbosity q --nologo
-          if ($LASTEXITCODE -ne 0) {
-            Write-Host "::warning::First test run failed, retrying..."
-            dotnet test UniGetUI.sln --no-restore --verbosity q --nologo
-            if ($LASTEXITCODE -ne 0) { exit 1 }
-          }
-
       - name: Publish
         shell: pwsh
         run: |
@@ -221,26 +183,6 @@ jobs:
 
           # Backward-compat alias
           Copy-Item "unigetui_bin/UniGetUI.exe" "unigetui_bin/WingetUI.exe" -Force
-
-      - name: Code-sign binaries
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        shell: pwsh
-        run: |
-          $ListPath = Join-Path $PWD "signing-files.txt"
-          $files = Get-ChildItem "unigetui_bin" -Recurse -Include "*.exe", "*.dll" | Where-Object {
-            (Get-AuthenticodeSignature $_.FullName).Status -eq "NotSigned"
-          }
-          $files.FullName | Set-Content $ListPath
-          Write-Host "Signing list contains $($files.Count) files."
-
-          .\scripts\sign.ps1 `
-            -FileListPath $ListPath `
-            -AzureTenantId '${{ secrets.AZURE_TENANT_ID }}' `
-            -KeyVaultUrl '${{ secrets.CODE_SIGNING_KEYVAULT_URL }}' `
-            -ClientId '${{ secrets.CODE_SIGNING_CLIENT_ID }}' `
-            -ClientSecret '${{ secrets.CODE_SIGNING_CLIENT_SECRET }}' `
-            -CertificateName '${{ secrets.CODE_SIGNING_CERTIFICATE_NAME }}' `
-            -TimestampServer '${{ vars.CODE_SIGNING_TIMESTAMP_SERVER }}'
 
       - name: Build installer
         shell: pwsh
@@ -283,20 +225,6 @@ jobs:
           Compress-Archive -Path "unigetui_bin/*" -DestinationPath "output/UniGetUI.$Platform.zip" -CompressionLevel Optimal
 
           # Installer is created in output during the previous step
-
-      - name: Code-sign installer
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        shell: pwsh
-        run: |
-          $Platform = '${{ matrix.platform }}'
-          .\scripts\sign.ps1 `
-            -InstallerPath "output/UniGetUI.Installer.$Platform.exe" `
-            -AzureTenantId '${{ secrets.AZURE_TENANT_ID }}' `
-            -KeyVaultUrl '${{ secrets.CODE_SIGNING_KEYVAULT_URL }}' `
-            -ClientId '${{ secrets.CODE_SIGNING_CLIENT_ID }}' `
-            -ClientSecret '${{ secrets.CODE_SIGNING_CLIENT_SECRET }}' `
-            -CertificateName '${{ secrets.CODE_SIGNING_CERTIFICATE_NAME }}' `
-            -TimestampServer '${{ vars.CODE_SIGNING_TIMESTAMP_SERVER }}'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
@@ -392,54 +320,3 @@ jobs:
               & gh release create $ReleaseTag --repo $Repository --title $ReleaseTitle $Files.FullName
             }
           }
-
-      - name: Check out Devolutions/actions
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        uses: actions/checkout@v7
-        with:
-          repository: Devolutions/actions
-          ref: v1
-          token: ${{ secrets.DEVOLUTIONSBOT_TOKEN }}
-          path: ./.github/workflows
-
-      - name: Install Devolutions Toolbox
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        uses: ./.github/workflows/toolbox-install
-        with:
-          github_token: ${{ secrets.DEVOLUTIONSBOT_TOKEN }}
-
-      - name: Stage files for OneDrive upload
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        shell: pwsh
-        run: |
-          $PackageVersion = '${{ needs.preflight.outputs.package-version }}'
-          New-Item -Path "onedrive-staging" -ItemType Directory -Force | Out-Null
-
-          $OneDriveVersion = '${{ needs.preflight.outputs.onedrive-version }}'
-
-          $Mappings = @{
-            "output/UniGetUI-release-x64/UniGetUI.Installer.x64.exe" = "Devolutions.UniGetUI.win-x64.$OneDriveVersion.exe"
-            "output/UniGetUI-release-arm64/UniGetUI.Installer.arm64.exe" = "Devolutions.UniGetUI.win-arm64.$OneDriveVersion.exe"
-            "output/UniGetUI-release-x64/UniGetUI.x64.zip" = "Devolutions.UniGetUI.win-x64.$OneDriveVersion.zip"
-            "output/UniGetUI-release-arm64/UniGetUI.arm64.zip" = "Devolutions.UniGetUI.win-arm64.$OneDriveVersion.zip"
-          }
-
-          foreach ($entry in $Mappings.GetEnumerator()) {
-            if (-not (Test-Path $entry.Key)) {
-              throw "File not found: $($entry.Key)"
-            }
-            Copy-Item -Path $entry.Key -Destination "onedrive-staging/$($entry.Value)"
-            Write-Host "Staged: $($entry.Key) -> $($entry.Value)"
-          }
-
-      - name: Upload to OneDrive
-        if: ${{ fromJSON(needs.preflight.outputs.dry-run) == false }}
-        uses: ./.github/workflows/onedrive-upload
-        with:
-          azure_client_id: ${{ secrets.ONEDRIVE_AUTOMATION_CLIENT_ID }}
-          azure_client_secret: ${{ secrets.ONEDRIVE_AUTOMATION_CLIENT_SECRET }}
-          conflict_behavior: replace
-          destination_path: /UniGetUI/${{ needs.preflight.outputs.onedrive-version }}
-          remote: releases
-          source_path: Devolutions.UniGetUI.*
-          working_directory: onedrive-staging

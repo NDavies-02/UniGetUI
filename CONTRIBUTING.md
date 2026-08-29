@@ -1,27 +1,18 @@
 -------------------------------------------------------------
-This repository **respects** people, regardless of their race, gender, religion, height, or culture. Any user who posts offensive or disrespectful content regarding race, gender, religion, height, or culture **will be immediately banned from this repository**. No exception will be made.
+This repository **respects** people, regardless of their race, gender, religion, height, or culture. Any user who posts offensive or disrespectful content regarding race, gender, religion, height, or culture (or any other disrespectful content) **will be immediately banned from this repository**. No exception will be made.
 
 -------------------------------------------------------------
 
 # Contributing guidelines:
 
-Before reading: All of the rules below are guidelines, which means that they should be followed when possible. Please do not take them literally.
+Note: All of the rules below are guidelines, which means that they should be followed when possible. Please do not take them literally.
 
-## Issues and feature requests:
-
-#### Issues:
+## Issues:
  - Please use the BUG/ISSUE template
  - Please be clear when describing issues.
  - Please fill out the form and DO NOT send empty issues with the information on the title.
- - Please search for possible duplicates, and only post new content. (As stated in the BIG/ISSUE template).
+ - Please search for possible duplicates, and only post new content. (As stated in the BUG/ISSUE template).
  - Please make sure to prepend titles with the `[BUG/ISSUE]` string, so they can be easily identified.
-
-#### Feature requests:
-- Please use the FEATURE REQUEST template
- - Please detail how the feature should work. Please be as specific as possible.
- - Some features are difficult and might take some time to get implemented. This project is made in the contributor's free time, so please do not post messages asking for ETAs or similar. Every feature request will be considered.
- - Please check for duplicates as said in the FEATURE REQUEST template.
- - Please make sure to prepend titles with the `[FEATURE REQUEST]` string, so they can be easily identified.
 
 ## Pull requests:
  - Please specify, either in the title or in the PR body text, the changes done. 

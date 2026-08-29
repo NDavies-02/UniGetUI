@@ -31,31 +31,7 @@
         Text="WingetUI display language:"
         ValueChanged="ShowRestartBanner"
       >
-        <Toolkit:SettingsCard.Description>
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <widgets:TranslatedTextBlock
-              VerticalAlignment="Center"
-              Opacity=".8"
-              Text="Is your language missing or incomplete?"
-            />
-            <HyperlinkButton
-              Padding="0"
-              NavigateUri="https://github.com/Devolutions/UniGetUI/wiki#translating-wingetui"
-              AutomationProperties.Name="Is your language missing or incomplete? Become a translator"
-            >
-              <widgets:TranslatedTextBlock Text="Become a translator" />
-            </HyperlinkButton>
-          </StackPanel>
-        </Toolkit:SettingsCard.Description>
       </widgets:ComboboxCard>
-      <!--
-                widgets:ButtonCard
-                Text="Open the welcome wizard"
-                ButtonText="Open"
-                Click="OpenWelcomeWizard"
-                IsEnabled="False"
-                /
-            -->
 
       <widgets:TranslatedTextBlock
         Margin="4,32,4,8"
@@ -70,21 +46,6 @@
         Click="ForceUpdateUniGetUI_OnClick"
         CornerRadius="8,8,0,0"
         SettingName="DisableAutoUpdateWingetUI"
-      />
-      <widgets:CheckboxCard
-        BorderThickness="1,0,1,1"
-        CornerRadius="0,0,8,8"
-        SettingName="EnableUniGetUIBeta"
-        Text="Install prerelease versions of UniGetUI"
-      />
-
-      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Telemetry" />
-
-      <widgets:ButtonCard
-        ButtonText="Manage"
-        Click="ManageTelemetrySettings_Click"
-        CornerRadius="8"
-        Text="Manage telemetry settings (ignored, always disabled in this build)"
       />
 
       <widgets:TranslatedTextBlock
@@ -112,32 +73,6 @@
         CornerRadius="0,0,8,8"
         Text="Reset WingetUI"
       />
-
-      <StackPanel AutomationProperties.Name="Related settings" AutomationProperties.LocalizedControlType="grouping">
-        <widgets:TranslatedTextBlock
-          Margin="4,32,4,8"
-          FontWeight="SemiBold"
-          Text="Related settings"
-        />
-
-        <controls:SettingsCard
-          Click="InterfaceSettingsButton_Click"
-          CornerRadius="8"
-          IsClickEnabled="True"
-          AutomationProperties.Name="User interface preferences"
-          AutomationProperties.HelpText="Application theme, startup page, package icons, clear successful installs automatically"
-        >
-          <controls:SettingsCard.Header>
-            <widgets:TranslatedTextBlock Text="User interface preferences" />
-          </controls:SettingsCard.Header>
-          <controls:SettingsCard.Description>
-            <widgets:TranslatedTextBlock Text="Application theme, startup page, package icons, clear successful installs automatically" />
-          </controls:SettingsCard.Description>
-          <controls:SettingsCard.HeaderIcon>
-            <widgets:LocalIcon Icon="Interactive" />
-          </controls:SettingsCard.HeaderIcon>
-        </controls:SettingsCard>
-      </StackPanel>
     </StackPanel>
   </ScrollViewer>
 </Page>

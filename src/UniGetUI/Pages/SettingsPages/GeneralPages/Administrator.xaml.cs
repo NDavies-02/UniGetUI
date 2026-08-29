@@ -15,31 +15,18 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
         {
             this.InitializeComponent();
 
-            if (DoCacheAdminRights.Checked && DoCacheAdminRightsForBatches.Checked)
-            {
-                DoCacheAdminRights.IsEnabled = true;
-                DoCacheAdminRightsForBatches.IsEnabled = true;
-            }
-
             WarningTitlebar.Title = CoreTools.Translate("Warning") + "!";
             WarningTitlebar.Message =
                 CoreTools.Translate(
-                    "The following settings may pose a security risk, hence they are disabled by default."
+                    "The following settings may pose a security risk and are disabled by default."
                 )
-                + " "
                 + CoreTools.Translate(
-                    "Enable the settings below if and only if you fully understand what they do, and the implications they may have."
-                )
-                + "\n\n"
-                + CoreTools.Translate(
-                    "The settings will list, in their descriptions, the potential security issues they may have."
+                    " Enable the settings below if and only if you fully understand what they do, and the implications they may have."
                 )
                 + " ";
 
             AllowCustomManagerPaths.StateChanged += (_, _) =>
                 RestartRequired?.Invoke(this, EventArgs.Empty);
-
-            // The following settings may pose a security risk, hence they are disabled by default. Enable them ONLY if you undertsand what you are doing. Some of those settings will show a UAC prompt before being enabled."
         }
 
         public bool CanGoBack => true;

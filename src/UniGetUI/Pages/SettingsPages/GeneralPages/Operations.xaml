@@ -68,45 +68,6 @@
         CornerRadius="8"
         SettingName="AskToDeleteNewDesktopShortcuts"
       />
-
-      <widgets:TranslatedTextBlock
-        Margin="4,32,4,8"
-        FontWeight="SemiBold"
-        Text="Related settings"
-      />
-
-      <controls:SettingsCard
-        Click="UpdatesSettingsButton_Click"
-        CornerRadius="8,8,0,0"
-        IsClickEnabled="True"
-      >
-        <controls:SettingsCard.Header>
-          <widgets:TranslatedTextBlock Text="Package update preferences" />
-        </controls:SettingsCard.Header>
-        <controls:SettingsCard.Description>
-          <widgets:TranslatedTextBlock Text="Update check frequency, automatically install updates, etc." />
-        </controls:SettingsCard.Description>
-        <controls:SettingsCard.HeaderIcon>
-          <widgets:LocalIcon Icon="Package" />
-        </controls:SettingsCard.HeaderIcon>
-      </controls:SettingsCard>
-
-      <controls:SettingsCard
-        BorderThickness="1,0,1,1"
-        Click="AdminButton_Click"
-        CornerRadius="0,0,8,8"
-        IsClickEnabled="True"
-      >
-        <controls:SettingsCard.Header>
-          <widgets:TranslatedTextBlock Text="Administrator rights and other dangerous settings" />
-        </controls:SettingsCard.Header>
-        <controls:SettingsCard.Description>
-          <widgets:TranslatedTextBlock Text="Reduce UAC prompts, elevate installations by default, unlock certain dangerous features, etc." />
-        </controls:SettingsCard.Description>
-        <controls:SettingsCard.HeaderIcon>
-          <widgets:LocalIcon Icon="UAC" />
-        </controls:SettingsCard.HeaderIcon>
-      </controls:SettingsCard>
     </StackPanel>
   </ScrollViewer>
 </Page>

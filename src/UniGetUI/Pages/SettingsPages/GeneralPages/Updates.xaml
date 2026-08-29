@@ -79,41 +79,6 @@
         SettingName="DisableAUPOnBatterySaver"
         Text="Do not automatically install updates when the battery saver is on"
       />
-
-      <widgets:TranslatedTextBlock
-        Margin="4,32,4,8"
-        FontWeight="SemiBold"
-        Text="Related settings"
-      />
-
-      <controls:SettingsCard
-        BorderThickness="1,1,1,0"
-        Click="OperationsSettingsButton_Click"
-        CornerRadius="8,8,0,0"
-        IsClickEnabled="True"
-      >
-        <controls:SettingsCard.Header>
-          <widgets:TranslatedTextBlock Text="Package operation preferences" />
-        </controls:SettingsCard.Header>
-        <controls:SettingsCard.Description>
-          <widgets:TranslatedTextBlock Text="Change how UniGetUI handles install, update and uninstall operations." />
-        </controls:SettingsCard.Description>
-        <controls:SettingsCard.HeaderIcon>
-          <widgets:LocalIcon Icon="Update" />
-        </controls:SettingsCard.HeaderIcon>
-      </controls:SettingsCard>
-
-      <controls:SettingsCard Click="AdminButton_Click" CornerRadius="0,0,8,8" IsClickEnabled="True">
-        <controls:SettingsCard.Header>
-          <widgets:TranslatedTextBlock Text="Administrator rights and other dangerous settings" />
-        </controls:SettingsCard.Header>
-        <controls:SettingsCard.Description>
-          <widgets:TranslatedTextBlock Text="Reduce UAC prompts, elevate installations by default, unlock certain dangerous features, etc." />
-        </controls:SettingsCard.Description>
-        <controls:SettingsCard.HeaderIcon>
-          <widgets:LocalIcon Icon="UAC" />
-        </controls:SettingsCard.HeaderIcon>
-      </controls:SettingsCard>
     </StackPanel>
   </ScrollViewer>
 </Page>

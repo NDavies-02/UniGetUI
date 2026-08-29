@@ -102,6 +102,7 @@ public abstract class AbstractProcessOperation : AbstractOperation
         Line($" - FileName: \"{process.StartInfo.FileName.Trim()}\"", LineType.VerboseDetails);
         Line($" - Arguments: \"{process.StartInfo.Arguments.Trim()}\"", LineType.VerboseDetails);
         Line($"Start Time: \"{DateTime.Now}\"", LineType.VerboseDetails);
+        Line($"If UniGetUI.exe is not elevated, this operation may fail. Elevator cannot be used.", LineType.VerboseDetails);
 
         // An empty FileName means elevation was required but no elevator (UniGetUI Elevator/GSudo) is available
         if (string.IsNullOrWhiteSpace(process.StartInfo.FileName))

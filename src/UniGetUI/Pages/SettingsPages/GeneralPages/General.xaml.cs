@@ -69,9 +69,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             );
         }
 
-        private void ManageTelemetrySettings_Click(object sender, EventArgs e) =>
-            _ = DialogHelper.ShowTelemetryDialog();
-
         private void ImportSettings_Click(object sender, EventArgs e) => _ = _importSettings();
 
         private async Task _importSettings()

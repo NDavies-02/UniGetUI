@@ -333,11 +333,11 @@ public static partial class DialogHelper
         }
 
         AdminDialog.XamlRoot = Window.XamlRoot;
-        AdminDialog.PrimaryButtonText = CoreTools.Translate("I understand");
+        AdminDialog.PrimaryButtonText = CoreTools.Translate("OK");
         AdminDialog.DefaultButton = ContentDialogButton.Primary;
         AdminDialog.Title = CoreTools.Translate("Administrator privileges");
         AdminDialog.Content = CoreTools.Translate(
-            "WingetUI has been ran as administrator, which is not recommended. When running WingetUI as administrator, EVERY operation launched from WingetUI will have administrator privileges. You can still use the program, but we highly recommend not running WingetUI with administrator privileges."
+            "UniGetUI is now running with administrator privileges, which is required for privileged operations."
         );
 
         await ShowDialogAsync(AdminDialog);

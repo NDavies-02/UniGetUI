@@ -32,6 +32,35 @@ namespace UniGetUI.Interface
 {
     public sealed partial class MainWindow : Window
     {
+        public void ShowAdministratorWarning() //Display a banner warning of missing admin rights with a restart button
+        {
+            Button restartButton = new()
+            {
+                Content = "Restart now",
+            };
+            restartButton.Click += (_, _) =>
+            {
+                restartButton.IsEnabled = false;
+                if (EntryPoint.RestartAsAdministrator())
+                {
+                    Close(); // Close unelevated instance
+                }
+                else
+                {
+                    restartButton.IsEnabled = true;
+                    AdminWarningBanner.Severity = InfoBarSeverity.Error;
+                    AdminWarningBanner.Message = "There was a problem. Please try again.";
+                }
+            };
+            AdminWarningBanner.Title = "Limited functionality";
+            AdminWarningBanner.Message =
+            "Many package management operations require UniGetUI to be elevated. " +
+            "Restart UniGetUI with administrator privileges to enable full functionality.";
+            AdminWarningBanner.Severity = InfoBarSeverity.Warning;
+            AdminWarningBanner.ActionButton = restartButton;
+            AdminWarningBanner.IsClosable = false;
+            AdminWarningBanner.IsOpen = true;
+        }
         public XamlRoot XamlRoot
         {
             get => MainContentGrid.XamlRoot;
@@ -206,7 +235,7 @@ namespace UniGetUI.Interface
                 _currentSubtitle += " - ";
             _currentSubtitle += line;
             _currentSubtitlePxLength = _currentSubtitle.Length * 4;
-            Title = "UniGetUI - " + _currentSubtitle;
+            Title = "UniGetUI " + _currentSubtitle;
             TitleBar.Subtitle = subtitleCollapsed is true ? "" : _currentSubtitle;
         }
 

@@ -27,15 +27,15 @@
         <Toolkit:SettingsCard.Description>
           <StackPanel Orientation="Vertical">
             <widgets:TranslatedTextBlock
-              Prefix=" - "
+              Prefix=" • "
               Text="The backup will include the complete list of the installed packages and their installation options. Ignored updates and skipped versions will also be saved."
             />
             <widgets:TranslatedTextBlock
-              Prefix=" - "
+              Prefix=" • "
               Text="The backup will NOT include any binary file nor any program's saved data."
             />
             <widgets:TranslatedTextBlock
-              Prefix=" - "
+              Prefix=" • "
               Text="The size of the backup is estimated to be less than 1MB."
             />
           </StackPanel>
