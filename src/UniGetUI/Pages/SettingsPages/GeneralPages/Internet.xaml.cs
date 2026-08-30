@@ -99,6 +99,17 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             }
         }
 
+
+        private void SettingsInternet_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void SettingsInternet_Unloaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
+        }
+
         public bool CanGoBack => true;
         public string ShortTitle => CoreTools.Translate("Internet connection settings");
 

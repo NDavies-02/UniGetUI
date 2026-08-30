@@ -16,6 +16,16 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             this.InitializeComponent();
         }
 
+        private void SettingsExperimental_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void SettingsExperimental_Unloaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
+        }
+
         public bool CanGoBack => true;
 
         public string ShortTitle =>

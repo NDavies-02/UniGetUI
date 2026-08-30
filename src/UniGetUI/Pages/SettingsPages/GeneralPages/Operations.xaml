@@ -9,6 +9,9 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
+  Loaded="SettingsOperations_Loaded"
+  NavigationCacheMode="Required"
+  Unloaded="SettingsOperations_Unloaded"
   mc:Ignorable="d"
 >
   <ScrollViewer

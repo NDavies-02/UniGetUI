@@ -10,6 +10,9 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
+  Loaded="SettingsInternet_Loaded"
+  NavigationCacheMode="Required"
+  Unloaded="SettingsInternet_Unloaded"
   mc:Ignorable="d"
 >
   <Page.Resources>

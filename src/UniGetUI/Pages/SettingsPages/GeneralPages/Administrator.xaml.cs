@@ -29,6 +29,16 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
                 RestartRequired?.Invoke(this, EventArgs.Empty);
         }
 
+        private void SettingsAdmin_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void SettingsAdmin_Unloaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
+        }
+
         public bool CanGoBack => true;
         public string ShortTitle =>
             CoreTools.Translate("Administrator rights and other dangerous settings");

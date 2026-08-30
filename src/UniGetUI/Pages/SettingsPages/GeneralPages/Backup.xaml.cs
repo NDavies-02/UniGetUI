@@ -31,6 +31,16 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             OpenBackupDirectory.Content = CoreTools.Translate("Open");
                     }
 
+        private void SettingsBackup_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void SettingsBackup_Unloaded(object sender, RoutedEventArgs e)
+        {
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
+        }
+
         public bool CanGoBack => true;
 
         public string ShortTitle => CoreTools.Translate("Backup and Restore");
