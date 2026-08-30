@@ -30,7 +30,7 @@ To install this fork of UniGetUI, you should download the [latest release from t
 ## UniGetUI Cleanup Script  
 The cleanup script now has its [own documentation](https://github.com/NDavies-02/UniGetUI/blob/main/UniGetUI%20Cleaner.md).
 
-### UniGetUI Auto-Updater
+## UniGetUI Auto-Updater
 As of `v4.1.3`, the Auto-Updater functions as expected.
 > [!Note]
 > For versions prior to `v4.1.3` only, the built-in auto-updater will attempt to download and install the latest Devolutions release. You should disable updates by going to Settings > General preferences > UniGetUI updater > Update UniGetUI automatically. You may also need to ignore the update in the Software Updates screen. Alternatively, update to UniGetUI `v4.1.3` which resolves this problem.
