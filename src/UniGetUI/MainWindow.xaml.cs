@@ -101,9 +101,6 @@ namespace UniGetUI.Interface
 
             foreach (var arg in Environment.GetCommandLineArgs())
             {
-                if (string.Equals(arg, CLIHandler.RESTARTED_AS_ADMIN, StringComparison.OrdinalIgnoreCase))
-                    // Ignore the special admin argument
-                    continue;
                 ParametersToProcess.Enqueue(arg);
             }
 
