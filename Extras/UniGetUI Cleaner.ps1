@@ -1,9 +1,10 @@
-# Check for admin rights and prompt UAC if elevation is needed
+# Check for admin rights
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 # First try to use Windows Terminal with PS7, otherwise use standard PowerShell 5.x window
 if (-not $isAdmin) {
-    Write-Host "This script requires administrative rights. You will be prompted by User Account Control. " -ForegroundColor Cyan
+    Write-Host "This script requires administrative rights. You will be prompted by User Account Control... " -ForegroundColor Cyan
+    Start-Sleep -Seconds 5
     $arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
     if (Get-Command wt.exe -ErrorAction SilentlyContinue) {
         Start-Process -FilePath "wt.exe" -ArgumentList "pwsh.exe $arguments" -Verb RunAs
@@ -183,7 +184,6 @@ foreach ($item in $itemsToDelete) {
     if (Test-Path -LiteralPath $item) {
         Write-Host "Deleting: $item" -ForegroundColor Yellow
         try {
-            # Remove '-WhatIf' when ready for live deletion
             Remove-Item -LiteralPath $item -Recurse -Force -ErrorAction Stop
             Write-Host "Successfully processed: $item" -ForegroundColor Green
         }
