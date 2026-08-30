@@ -100,7 +100,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             }
         }
 
-
         private void SettingsInternet_Loaded(object sender, RoutedEventArgs e)
         {
             MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
