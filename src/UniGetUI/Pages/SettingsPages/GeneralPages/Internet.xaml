@@ -165,15 +165,25 @@
         </controls:SettingsCard.Description>
       </controls:SettingsCard>
 
-      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Connectivity checking" />
+      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Networking" />
 
-      <widgets:CheckboxCard
-        x:Name="DisableWaitForInternetConnection"
-        CornerRadius="8"
-        SettingName="DisableWaitForInternetConnection"
-        StateChanged="ShowRestartBanner"
-        Text="Wait for the device to be connected to the internet before attempting to do tasks that require internet connectivity."
+        <widgets:CheckboxCard
+          x:Name="DisableWidgetsApi"
+          BorderThickness="1,1,1,0"
+          CornerRadius="8,8,0,0"
+          SettingName="DisableApi"
+          StateChanged="ShowRestartBanner"
+          Text="Enable background api (WingetUI Widgets and Sharing, port 7058)"
       />
+
+        <widgets:CheckboxCard
+          x:Name="DisableWaitForInternetConnection"
+          CornerRadius="0,0,8,8"
+          SettingName="DisableWaitForInternetConnection"
+          StateChanged="ShowRestartBanner"
+          Text="Wait for the device to be connected to the internet before attempting to do tasks that require internet connectivity."
+      />
+        
     </StackPanel>
   </ScrollViewer>
 </Page>

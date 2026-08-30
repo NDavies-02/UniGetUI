@@ -8,14 +8,8 @@ using UniGetUI.PackageEngine.Interfaces;
 using UniGetUI.PackageEngine.ManagerClasses.Manager;
 using UniGetUI.Pages.SettingsPages.GeneralPages;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace UniGetUI.Pages.SettingsPages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class SettingsBasePage : Page, IEnterLeaveListener, IInnerNavigationPage
     {
         private readonly bool IsManagers;
@@ -141,14 +135,22 @@ namespace UniGetUI.Pages.SettingsPages
             MainNavigationFrame.Navigate(e, null, new DrillInNavigationTransitionInfo());
         }
 
-        public void OnEnter() =>
+        public void OnEnter()
+        {
+            // Hide the titlebar searchbox for the whole Settings area
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
             MainNavigationFrame.Navigate(
                 IsManagers ? typeof(ManagersHomepage) : typeof(SettingsHomepage),
                 null,
                 new DrillInNavigationTransitionInfo()
             );
+        }
 
-        public void OnLeave() { }
+        public void OnLeave()
+        {
+            // Restore the titlebar searchbox when leaving Settings
+            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
+        }
 
         public bool CanGoBack() =>
             MainNavigationFrame.CanGoBack

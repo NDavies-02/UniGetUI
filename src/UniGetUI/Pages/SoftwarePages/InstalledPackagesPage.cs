@@ -208,11 +208,11 @@ namespace UniGetUI.Interface.SoftwarePages
             MainToolbarButtonText.Text = CoreTools.Translate("Uninstall selection");
 
             AppBarButton InstallationSettings = new();
-            AppBarButton PackageDetails = new();
-            AppBarButton SharePackage = new();
             AppBarButton IgnoreSelected = new();
             AppBarButton ManageIgnored = new();
+            AppBarButton PackageDetails = new();
             AppBarButton ExportSelection = new();
+            AppBarButton SharePackage = new();
 
             ToolBar.PrimaryCommands.Add(InstallationSettings);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
@@ -220,11 +220,10 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(ManageIgnored);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(PackageDetails);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(SharePackage);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(ExportSelection);
+            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
+            ToolBar.PrimaryCommands.Add(PackageDetails);
+            ToolBar.PrimaryCommands.Add(SharePackage);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -232,7 +231,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 { UninstallAsAdmin, CoreTools.Translate("Uninstall as administrator") },
                 { UninstallInteractive, CoreTools.Translate("Interactive uninstall") },
                 { DownloadInstallers, CoreTools.Translate("Download selected installers") },
-                { InstallationSettings, " " + CoreTools.Translate("Uninstall options") },
+                { InstallationSettings, CoreTools.Translate("Uninstall options") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
                 { SharePackage, " " + CoreTools.Translate("Share") },
                 { IgnoreSelected, CoreTools.Translate("Ignore selected packages") },

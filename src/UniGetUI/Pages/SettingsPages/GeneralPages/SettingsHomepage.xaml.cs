@@ -29,16 +29,6 @@ namespace UniGetUI.Pages.SettingsPages
             this.InitializeComponent();
         }
 
-        private void SettingsHomepage_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsHomepage_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         public void Administrator(object s, RoutedEventArgs e) =>
             NavigationRequested?.Invoke(this, typeof(Administrator));
 

@@ -29,25 +29,7 @@
       />
 
       <UserControl Height="16" />
-
-      <widgets:CheckboxCard
-        x:Name="DisableWidgetsApi"
-        BorderThickness="1,1,1,0"
-        CornerRadius="8,8,0,0"
-        SettingName="DisableApi"
-        StateChanged="ShowRestartBanner"
-        Text="Enable background api (WingetUI Widgets and Sharing, port 7058)"
-      />
-
-      <widgets:CheckboxCard
-        x:Name="DisableWaitForInternetConnection"
-        CornerRadius="0,0,8,8"
-        SettingName="DisableWaitForInternetConnection"
-        StateChanged="ShowRestartBanner"
-        Text="Wait for the device to be connected to the internet before attempting to do tasks that require internet connectivity."
-      />
-
-      <UserControl Height="16" />
+        
       <widgets:CheckboxCard
         CornerRadius="8"
         ForceInversion="True"
@@ -57,36 +39,15 @@
 
       <UserControl Height="16" />
 
-      <widgets:SecureCheckboxCard
-        x:Name="UseUserGSudoToggle"
+       <widgets:CheckboxCard
+        Name="InstallInstalledPackagesBundlesPage"
         CornerRadius="8"
-        SettingName="ForceUserGSudo"
-        StateChanged="ShowRestartBanner"
-        Text="Use installed GSudo instead of UniGetUI Elevator"
+        SettingName="InstallInstalledPackagesBundlesPage"
+        Text="When batch installing packages from a bundle, install also packages that are already installed"
       />
 
       <UserControl Height="16" />
-
-      <widgets:CheckboxCard
-        x:Name="DisableDownloadingNewTranslations"
-        BorderThickness="1,1,1,0"
-        CornerRadius="8,8,0,0"
-        SettingName="DisableLangAutoUpdater"
-        StateChanged="ShowRestartBanner"
-        Text="Download updated language files from GitHub automatically"
-      />
-
-      <widgets:TextboxCard
-        CornerRadius="0,0,8,8"
-        HelpUrl="https://www.marticliment.com/unigetui/help/icons-and-screenshots#custom-source"
-        Placeholder="Leave empty for default"
-        SettingName="IconDataBaseURL"
-        Text="Use a custom icon and screenshot database URL"
-        ValueChanged="ShowRestartBanner"
-      />
-
-      <UserControl Height="16" />
-
+        
       <widgets:CheckboxCard
         Name="DisableDMWThreadOptimizations"
         CornerRadius="8"
@@ -102,15 +63,7 @@
         SettingName="DisableIntegrityChecks"
         Text="Perform integrity checks at startup"
       />
-
-      <UserControl Height="16" />
-
-      <widgets:CheckboxCard
-        Name="InstallInstalledPackagesBundlesPage"
-        CornerRadius="8"
-        SettingName="InstallInstalledPackagesBundlesPage"
-        Text="When batch installing packages from a bundle, install also packages that are already installed"
-      />
+        
     </StackPanel>
   </ScrollViewer>
 </Page>
