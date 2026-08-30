@@ -33,16 +33,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             ParallelOperationCount.ShowAddedItems();
         }
 
-        private void SettingsOperations_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsOperations_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         public void ShowRestartBanner(object sender, EventArgs e) =>
             RestartRequired?.Invoke(this, e);
 

@@ -8,9 +8,6 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
-  Loaded="SettingsHomepage_Loaded"
-  NavigationCacheMode="Required"
-  Unloaded="SettingsHomepage_Unloaded"
   mc:Ignorable="d"
 >
   <ScrollViewer
@@ -21,6 +18,7 @@
     VerticalAlignment="Stretch"
     HorizontalContentAlignment="Center"
     VerticalContentAlignment="Center"
+    VerticalScrollBarVisibility="Hidden"
   >
     <StackPanel Name="SettingsEntries" Orientation="Vertical">
       <widgets:SettingsPageButton
@@ -136,6 +134,9 @@
         Text="Advanced"
         UnderText="Recommended for advanced users only"
       />
+
+        <UserControl Height="16" />
+        
     </StackPanel>
   </ScrollViewer>
 </Page>

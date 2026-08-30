@@ -44,16 +44,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             StartupPageSelector.ShowAddedItems();
         }
 
-        private void SettingsInterface_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsInterface_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);

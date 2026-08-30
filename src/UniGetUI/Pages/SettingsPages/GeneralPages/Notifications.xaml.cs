@@ -20,16 +20,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             this.InitializeComponent();
         }
 
-        private void SettingsNotifications_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsNotifications_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (Settings.Get(Settings.K.DisableSystemTray))

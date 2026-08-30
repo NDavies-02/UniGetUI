@@ -10,9 +10,6 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:widgets="using:UniGetUI.Interface.Widgets"
   Background="Transparent"
-  Loaded="SettingsInternet_Loaded"
-  NavigationCacheMode="Required"
-  Unloaded="SettingsInternet_Unloaded"
   mc:Ignorable="d"
 >
   <Page.Resources>
@@ -168,7 +165,7 @@
         </controls:SettingsCard.Description>
       </controls:SettingsCard>
 
-      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Connectivity checking" />
+      <widgets:TranslatedTextBlock Margin="4,32,4,8" FontWeight="SemiBold" Text="Networking" />
 
         <widgets:CheckboxCard
           x:Name="DisableWidgetsApi"

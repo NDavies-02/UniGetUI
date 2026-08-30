@@ -40,16 +40,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             UpdatesCheckIntervalSelector.ShowAddedItems();
         }
 
-        private void SettingsUpdates_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsUpdates_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         public bool CanGoBack => true;
         public string ShortTitle => CoreTools.Translate("Package update preferences");
 

@@ -48,16 +48,6 @@ namespace UniGetUI.Pages.SettingsPages.GeneralPages
             LanguageSelector.ShowAddedItems();
         }
 
-        private void SettingsGeneral_Loaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void SettingsGeneral_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MainApp.Instance.MainWindow.GlobalSearchBox.Visibility = Visibility.Visible;
-        }
-
         public bool CanGoBack => true;
         public string ShortTitle => CoreTools.Translate("General preferences");
 
