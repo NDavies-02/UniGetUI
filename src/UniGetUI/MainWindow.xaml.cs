@@ -57,8 +57,8 @@ namespace UniGetUI.Interface
             "Many package management operations require UniGetUI to be elevated. " +
             "Restart UniGetUI with administrator privileges to enable full functionality.";
             AdminWarningBanner.Severity = InfoBarSeverity.Warning;
-            AdminWarningBanner.ActionButton = restartButton;
-            AdminWarningBanner.IsClosable = false;
+            // AdminWarningBanner.ActionButton = restartButton;
+            AdminWarningBanner.IsClosable = true;
             AdminWarningBanner.IsOpen = true;
         }
         public XamlRoot XamlRoot
