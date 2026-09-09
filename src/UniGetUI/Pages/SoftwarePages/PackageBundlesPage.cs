@@ -219,10 +219,10 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(OpenBundle);
             ToolBar.PrimaryCommands.Add(SaveBundle);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
-            ToolBar.PrimaryCommands.Add(ToBatchScript);
-            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(AddPackagesToBundle);
             ToolBar.PrimaryCommands.Add(RemoveSelected);
+            ToolBar.PrimaryCommands.Add(new AppBarSeparator());
+            ToolBar.PrimaryCommands.Add(ToBatchScript);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
             ToolBar.PrimaryCommands.Add(SharePackage);

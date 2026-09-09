@@ -59,7 +59,7 @@
         CornerRadius="8,8,0,0"
         Icon="Package"
         Text="Package operations"
-        UnderText="Handling of install, update and uninstall operations"
+        UnderText="Handling of install, update, and uninstall operations"
       />
 
       <widgets:SettingsPageButton
