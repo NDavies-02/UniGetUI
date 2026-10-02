@@ -390,56 +390,6 @@ public static partial class DialogHelper
         await ShowDialogAsync(dialog);
     }
 
-    public static void SharePackage(IPackage? package)
-    {
-        if (package is null)
-            return;
-
-        if (package.Source.IsVirtualManager || package is InvalidImportedPackage)
-        {
-            DialogHelper.ShowDismissableBalloon(
-                CoreTools.Translate("Something went wrong"),
-                CoreTools.Translate("\"{0}\" is a local package and can't be shared", package.Name)
-            );
-            return;
-        }
-
-        IntPtr hWnd = Window.GetWindowHandle();
-
-        NativeHelpers.IDataTransferManagerInterop interop =
-            DataTransferManager.As<NativeHelpers.IDataTransferManagerInterop>();
-
-        IntPtr result = interop.GetForWindow(hWnd, NativeHelpers._dtm_iid);
-        DataTransferManager dataTransferManager =
-            WinRT.MarshalInterface<DataTransferManager>.FromAbi(result);
-
-        dataTransferManager.DataRequested += (_, args) =>
-        {
-            DataRequest dataPackage = args.Request;
-            Uri ShareUrl = new(
-                "https://marticliment.com/unigetui/share?"
-                    + "name="
-                    + HttpUtility.UrlEncode(package.Name)
-                    + "&id="
-                    + HttpUtility.UrlEncode(package.Id)
-                    + "&sourceName="
-                    + HttpUtility.UrlEncode(package.Source.Name)
-                    + "&managerName="
-                    + HttpUtility.UrlEncode(package.Manager.DisplayName)
-            );
-
-            dataPackage.Data.SetWebLink(ShareUrl);
-            dataPackage.Data.Properties.Title = "Sharing " + package.Name;
-            dataPackage.Data.Properties.ApplicationName = "WingetUI";
-            dataPackage.Data.Properties.ContentSourceWebLink = ShareUrl;
-            dataPackage.Data.Properties.Description =
-                "Share " + package.Name + " with your friends";
-            dataPackage.Data.Properties.PackageFamilyName = "WingetUI";
-        };
-
-        interop.ShowShareUIForWindow(hWnd);
-    }
-
     /// <summary>
     /// Returns true if the user confirms to lose unsaved changes, and wants to proceed with the creation of a new bundle
     /// </summary>

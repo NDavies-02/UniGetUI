@@ -13,7 +13,6 @@ vcredist.exe
 unigetui_bin/
 APIKEY.txt
 *.pyc
-WebBasedData/screenshot_database.xlsx
 WebBasedData/new_urls.txt
 WebBasedData/screenshot-database.json.backup
 pr_body.md
@@ -91,3 +90,4 @@ UniGetUI Installer_winget-fix-test.exe
 InstallerExtras/uninst-*.e32
 src/.idea/
 src/UniGetUI.v3.ncrunchsolution
+/refined_candidates.txt

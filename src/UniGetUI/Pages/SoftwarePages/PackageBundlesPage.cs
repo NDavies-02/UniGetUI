@@ -31,7 +31,6 @@ namespace UniGetUI.Interface.SoftwarePages
     {
         private BetterMenuItem? MenuInstallOptions;
         private BetterMenuItem? MenuInstall;
-        private BetterMenuItem? MenuShare;
         private BetterMenuItem? MenuDetails;
         private BetterMenuItem? MenuAsAdmin;
         private BetterMenuItem? MenuInteractive;
@@ -162,14 +161,6 @@ namespace UniGetUI.Interface.SoftwarePages
             menu.Items.Add(menuRemoveFromList);
             menu.Items.Add(new MenuFlyoutSeparator());
 
-            MenuShare = new()
-            {
-                Text = CoreTools.AutoTranslated("Share this package"),
-                IconName = IconType.Share,
-            };
-            MenuShare.Click += MenuShare_Invoked;
-            menu.Items.Add(MenuShare);
-
             MenuDetails = new()
             {
                 Text = CoreTools.AutoTranslated("Package details"),
@@ -212,8 +203,6 @@ namespace UniGetUI.Interface.SoftwarePages
             AppBarButton ToBatchScript = new();
             AppBarButton AddPackagesToBundle = new();
             AppBarButton PackageDetails = new();
-            AppBarButton SharePackage = new();
-            AppBarButton HelpButton = new();
 
             ToolBar.PrimaryCommands.Add(NewBundle);
             ToolBar.PrimaryCommands.Add(OpenBundle);
@@ -225,7 +214,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(ToBatchScript);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
-            ToolBar.PrimaryCommands.Add(SharePackage);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -241,7 +229,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { SaveBundle, CoreTools.Translate("Save as") },
                 { AddPackagesToBundle, CoreTools.Translate("Add packages to bundle") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
-                { SharePackage, " " + CoreTools.Translate("Share") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()
@@ -257,8 +244,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { SaveBundle, IconType.SaveAs },
                 { AddPackagesToBundle, IconType.AddTo },
                 { PackageDetails, IconType.Info_Round },
-                { SharePackage, IconType.Share },
-                { HelpButton, IconType.Help },
             };
 
             ApplyTextAndIconsToToolbar(Labels, Icons);
@@ -287,10 +272,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 );
             };
 
-            HelpButton.Click += (_, _) =>
-            {
-                MainApp.Instance.MainWindow.NavigationPage.ShowHelp();
-            };
             NewBundle.Click += async (s, e) => await AskForNewBundle();
 
             RemoveSelected.Click += (_, _) =>
@@ -326,14 +307,6 @@ namespace UniGetUI.Interface.SoftwarePages
             OpenBundle.Click += async (_, _) => await AskOpenFromFile();
             SaveBundle.Click += async (_, _) => await SaveFile();
             ToBatchScript.Click += (_, _) => _ = CreateBatchScript();
-
-            SharePackage.Click += (_, _) =>
-            {
-                IPackage? package = SelectedItem;
-                if (package is not null)
-                    DialogHelper.SharePackage(package);
-            };
-
             AddPackagesToBundle.Click += (_, _) => _ = DialogHelper.HowToAddPackagesToBundle();
         }
 
@@ -403,7 +376,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 || MenuInteractive is null
                 || MenuSkipHash is null
                 || MenuDetails is null
-                || MenuShare is null
                 || MenuInstall is null
                 || MenuInstallOptions is null
                 || MenuDownloadInstaller is null
@@ -421,7 +393,6 @@ namespace UniGetUI.Interface.SoftwarePages
             MenuSkipHash.IsEnabled =
                 IS_VALID && package.Manager.Capabilities.CanSkipIntegrityChecks;
             MenuDetails.IsEnabled = IS_VALID;
-            MenuShare.IsEnabled = IS_VALID;
             MenuInstall.IsEnabled = IS_VALID;
             MenuInstallOptions.IsEnabled = IS_VALID;
             MenuDownloadInstaller.IsEnabled =
@@ -454,13 +425,6 @@ namespace UniGetUI.Interface.SoftwarePages
             if (SelectedItem is null)
                 return;
             _ = ImportAndInstallPackage(new[] { SelectedItem }, skiphash: true);
-        }
-
-        private void MenuShare_Invoked(object sender, RoutedEventArgs args)
-        {
-            if (SelectedItem is null)
-                return;
-            DialogHelper.SharePackage(SelectedItem);
         }
 
         private void MenuDetails_Invoked(object sender, RoutedEventArgs args)
@@ -1044,7 +1008,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 $commands= @(
                     {{string.Join(
                     ",\n    ",
-                    commands.Select(x => $"'cmd.exe /C {x.Replace("'", "''")}'")
+                    commands.Select(x => $"'{x.Replace("'", "''")}'")
                 )}}
                 )
 
