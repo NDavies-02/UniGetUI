@@ -61,19 +61,11 @@ c1a784f29 Add Option to download package manifests along with the installers (#4
 76930eb53 fix failed update banner showing with no log even when the update is successfull (#4831)
 138a07380 fix update of Portable packages (#4829)
 6a436821a Fix PowerShell 7 updates list silently dropping all modules (#4824)
-365f9e8e8 add support of minimum age directly in managers (#4809)
-aa040caec Fix some typos (#4740)
-df20d9499 Reduce Windows release package size (#4733)
-18ac9b4a8 Enhance update functionality and logging (#4726)
-504a43053 Reduce release package size and clean publish output (#4727)
-e137dc6a3 Flatten Windows publish layout and fix restart handoff (#4719)
-499f3ba6c Warn on WinGet upgrades when installer host changes (#4718)
-c3908e582 Add GUI-hosted CLI and IPC automation surface (#4714)
-963e994f3 Fix: skip version comparison for unparseable hash-based versions (#4710)
-1a94a4094 Fix two typos (#4709)
-8ab953801 fix Accessibility issues on the settings page for screen reader users.  (#4667)
-ff915f0ef Fix many screen reader accessibility issues  (#4666)
-015433570 Remove bundled Chocolatey CLI (#4638)
-548cd7c06 Handle WinGet COM exceptions in FindPackages and fall back to CLI" (#4639)
-a0f743bbe Fix WinGet activation order and repair false positives (#4605)
 
+
+
+
+
+To be considered at a later date:
+ff915f0ef Fix many screen reader accessibility issues  (#4666)
+8ab953801 fix Accessibility issues on the settings page for screen reader users.  (#4667)
