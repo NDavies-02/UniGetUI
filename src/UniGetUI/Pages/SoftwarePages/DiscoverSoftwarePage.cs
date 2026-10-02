@@ -141,7 +141,6 @@ namespace UniGetUI.Interface.SoftwarePages
 
             menu.Items.Add(new MenuFlyoutSeparator { Height = 5 });
 
-
             BetterMenuItem menuDetails = new()
             {
                 Text = CoreTools.AutoTranslated("Package details"),
@@ -246,7 +245,6 @@ namespace UniGetUI.Interface.SoftwarePages
                     FilteredPackages.GetCheckedPackages(),
                     TEL_InstallReferral.DIRECT_SEARCH
                 );
-
 
         }
 

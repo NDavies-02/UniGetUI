@@ -272,7 +272,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 );
             };
 
-
             NewBundle.Click += async (s, e) => await AskForNewBundle();
 
             RemoveSelected.Click += (_, _) =>
@@ -308,8 +307,6 @@ namespace UniGetUI.Interface.SoftwarePages
             OpenBundle.Click += async (_, _) => await AskOpenFromFile();
             SaveBundle.Click += async (_, _) => await SaveFile();
             ToBatchScript.Click += (_, _) => _ = CreateBatchScript();
-
-
             AddPackagesToBundle.Click += (_, _) => _ = DialogHelper.HowToAddPackagesToBundle();
         }
 
