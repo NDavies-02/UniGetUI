@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Formats.Asn1;
 using System.Text;
+using System.Text.RegularExpressions;
 using UniGetUI.Core.Tools;
 using UniGetUI.Interface.Enums;
 using UniGetUI.PackageEngine.Classes.Manager;
@@ -36,12 +37,10 @@ namespace UniGetUI.PackageEngine.Managers.PowerShell7Manager
                 },
                 SupportsProxy = ProxySupport.Partially,
                 SupportsProxyAuth = true,
-                KnowsPackageReleaseDate = PackageReleaseDateSupport.Yes,
             };
 
             Properties = new ManagerProperties
             {
-                Id = "pwsh",
                 Name = "PowerShell7",
                 DisplayName = "PowerShell 7.x",
                 Description = CoreTools.Translate(
@@ -80,89 +79,77 @@ namespace UniGetUI.PackageEngine.Managers.PowerShell7Manager
 
         protected override IReadOnlyList<Package> _getInstalledPackages_UnSafe()
         {
-            using Process p = new()
+            List<Package> Packages = [];
+            foreach (var env in new[] { "AllUsers", "CurrentUser" })
             {
-                StartInfo = new ProcessStartInfo
+                using Process p = new()
                 {
-                    FileName = Status.ExecutablePath,
-                    Arguments =
-                        Status.ExecutableCallArgs
-                        + " \"Write-Output '##SCOPE:AllUsers##';"
-                        + " Get-InstalledPSResource -Scope AllUsers | ForEach-Object { $_.Name + [char]9 + $_.Version + [char]9 + $_.Repository };"
-                        + " Write-Output '##SCOPE:CurrentUser##';"
-                        + " Get-InstalledPSResource -Scope CurrentUser | ForEach-Object { $_.Name + [char]9 + $_.Version + [char]9 + $_.Repository }\"",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    RedirectStandardInput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    StandardOutputEncoding = Encoding.UTF8,
-                },
-            };
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = Status.ExecutablePath,
+                        Arguments =
+                            Status.ExecutableCallArgs
+                            + $" \"Get-InstalledPSResource -Scope {env} | Format-Table -Property Name,Version,Repository\"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        RedirectStandardInput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        StandardOutputEncoding = Encoding.UTF8,
+                    },
+                };
 
-            IProcessTaskLogger logger = TaskLogger.CreateNew(
-                LoggableTaskType.ListInstalledPackages,
-                p
-            );
+                IProcessTaskLogger logger = TaskLogger.CreateNew(
+                    LoggableTaskType.ListInstalledPackages,
+                    p
+                );
 
-            p.Start();
-            string? line;
-            List<string> outputLines = [];
-            while ((line = p.StandardOutput.ReadLine()) is not null)
-            {
-                logger.AddToStdOut(line);
-                outputLines.Add(line);
-            }
-
-            logger.AddToStdErr(p.StandardError.ReadToEnd());
-            p.WaitForExit();
-            logger.Close(p.ExitCode);
-
-            return ParseInstalledPackages(outputLines, this);
-        }
-
-        internal static IReadOnlyList<Package> ParseInstalledPackages(
-            IEnumerable<string> outputLines,
-            PowerShell7 manager
-        )
-        {
-            List<Package> packages = [];
-            string currentScope = "AllUsers";
-
-            foreach (string line in outputLines)
-            {
-                if (line.StartsWith("##SCOPE:"))
+                p.Start();
+                string? line;
+                bool DashesPassed = false;
+                while ((line = p.StandardOutput.ReadLine()) is not null)
                 {
-                    currentScope = line.Trim('#').Split(':')[1];
-                    continue;
+                    logger.AddToStdOut(line);
+                    if (!DashesPassed)
+                    {
+                        if (line.Contains("-----"))
+                        {
+                            DashesPassed = true;
+                        }
+                    }
+                    else
+                    {
+                        string[] elements = Regex.Replace(line, " {2,}", " ").Split(' ');
+                        if (elements.Length < 3)
+                        {
+                            continue;
+                        }
+
+                        for (int i = 0; i < elements.Length; i++)
+                        {
+                            elements[i] = elements[i].Trim();
+                        }
+
+                        Packages.Add(
+                            new Package(
+                                CoreTools.FormatAsName(elements[0]),
+                                elements[0],
+                                elements[1],
+                                SourcesHelper.Factory.GetSourceOrDefault(elements[2]),
+                                this,
+                                new(env == "CurrentUser" ? PackageScope.User : PackageScope.Machine)
+                            )
+                        );
+                    }
                 }
 
-                string[] elements = line.Split('\t');
-                if (elements.Length < 3)
-                    continue;
-
-                for (int i = 0; i < elements.Length; i++)
-                    elements[i] = elements[i].Trim();
-
-                if (elements[0].Length == 0)
-                    continue;
-
-                packages.Add(
-                    new Package(
-                        CoreTools.FormatAsName(elements[0]),
-                        elements[0],
-                        elements[1],
-                        manager.SourcesHelper.Factory.GetSourceOrDefault(elements[2]),
-                        manager,
-                        new(currentScope == "CurrentUser" ? PackageScope.User : PackageScope.Machine)
-                    )
-                );
+                logger.AddToStdErr(p.StandardError.ReadToEnd());
+                p.WaitForExit();
+                logger.Close(p.ExitCode);
             }
 
-            return packages;
+            return Packages;
         }
-
-        protected override bool UseSubstringSearch => true;
 
         public override IReadOnlyList<string> FindCandidateExecutableFiles() =>
             CoreTools.WhichMultiple(OperatingSystem.IsWindows() ? "pwsh.exe" : "pwsh");
