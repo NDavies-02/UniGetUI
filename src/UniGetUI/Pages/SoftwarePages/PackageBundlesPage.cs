@@ -212,8 +212,6 @@ namespace UniGetUI.Interface.SoftwarePages
             AppBarButton ToBatchScript = new();
             AppBarButton AddPackagesToBundle = new();
             AppBarButton PackageDetails = new();
-            AppBarButton SharePackage = new();
-            AppBarButton HelpButton = new();
 
             ToolBar.PrimaryCommands.Add(NewBundle);
             ToolBar.PrimaryCommands.Add(OpenBundle);
@@ -225,7 +223,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(ToBatchScript);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
-            ToolBar.PrimaryCommands.Add(SharePackage);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a trailing space are collapsed
@@ -241,7 +238,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { SaveBundle, CoreTools.Translate("Save as") },
                 { AddPackagesToBundle, CoreTools.Translate("Add packages to bundle") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
-                { SharePackage, " " + CoreTools.Translate("Share") },
             };
 
             Dictionary<DependencyObject, IconType> Icons = new()
@@ -257,8 +253,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { SaveBundle, IconType.SaveAs },
                 { AddPackagesToBundle, IconType.AddTo },
                 { PackageDetails, IconType.Info_Round },
-                { SharePackage, IconType.Share },
-                { HelpButton, IconType.Help },
             };
 
             ApplyTextAndIconsToToolbar(Labels, Icons);
@@ -327,12 +321,6 @@ namespace UniGetUI.Interface.SoftwarePages
             SaveBundle.Click += async (_, _) => await SaveFile();
             ToBatchScript.Click += (_, _) => _ = CreateBatchScript();
 
-            SharePackage.Click += (_, _) =>
-            {
-                IPackage? package = SelectedItem;
-                if (package is not null)
-                    DialogHelper.SharePackage(package);
-            };
 
             AddPackagesToBundle.Click += (_, _) => _ = DialogHelper.HowToAddPackagesToBundle();
         }
@@ -454,13 +442,6 @@ namespace UniGetUI.Interface.SoftwarePages
             if (SelectedItem is null)
                 return;
             _ = ImportAndInstallPackage(new[] { SelectedItem }, skiphash: true);
-        }
-
-        private void MenuShare_Invoked(object sender, RoutedEventArgs args)
-        {
-            if (SelectedItem is null)
-                return;
-            DialogHelper.SharePackage(SelectedItem);
         }
 
         private void MenuDetails_Invoked(object sender, RoutedEventArgs args)

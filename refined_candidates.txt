@@ -79,5 +79,4 @@ a0f743bbe Fix WinGet activation order and repair false positives (#4605)
 8bf62356b Fix SecureSettings cache race (#4620)
 8c3e05dac fixed daemon parameter not working (#4591)
 c1fbd88c0 Remove share package feature (#4587)
-6ec1eaa77 Retry pip user installs before breaking system packages (#4569)
 

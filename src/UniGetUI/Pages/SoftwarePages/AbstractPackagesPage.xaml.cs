@@ -1218,14 +1218,6 @@ namespace UniGetUI.Interface
             CoreTools.Launch(path);
         }
 
-        protected void SharePackage(IPackage? package)
-        {
-            if (package is null)
-                return;
-
-            DialogHelper.SharePackage(package);
-        }
-
         protected async Task ShowInstallationOptionsForPackage(IPackage? package)
         {
             if (package is null)

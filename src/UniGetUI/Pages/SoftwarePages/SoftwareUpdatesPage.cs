@@ -151,13 +151,6 @@ namespace UniGetUI.Interface.SoftwarePages
             };
             menuSkipVersion.Click += MenuSkipVersion_Invoked;
 
-            BetterMenuItem menuShare = new()
-            {
-                Text = CoreTools.AutoTranslated("Share this package"),
-                IconName = IconType.Share,
-            };
-            menuShare.Click += (_, _) => SharePackage(SelectedItem);
-
             BetterMenuItem menuDetails = new()
             {
                 Text = CoreTools.AutoTranslated("Package details"),
@@ -272,7 +265,6 @@ namespace UniGetUI.Interface.SoftwarePages
 
             AppBarButton InstallationSettings = new();
             AppBarButton PackageDetails = new();
-            AppBarButton SharePackage = new();
             AppBarButton IgnoreSelected = new();
             AppBarButton ManageIgnored = new();
 
@@ -283,7 +275,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ToolBar.PrimaryCommands.Add(ManageIgnored);
             ToolBar.PrimaryCommands.Add(new AppBarSeparator());
             ToolBar.PrimaryCommands.Add(PackageDetails);
-            ToolBar.PrimaryCommands.Add(SharePackage);
 
             Dictionary<DependencyObject, string> Labels = new()
             { // Entries with a leading space are collapsed
@@ -295,7 +286,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { UninstallSelection, CoreTools.Translate("Uninstall selected packages") },
                 { InstallationSettings, CoreTools.Translate("Update options") },
                 { PackageDetails, " " + CoreTools.Translate("Package details") },
-                { SharePackage, " " + CoreTools.Translate("Share") },
                 { IgnoreSelected, CoreTools.Translate("Ignore selected packages") },
                 { ManageIgnored, CoreTools.Translate("Manage ignored updates") },
             };
@@ -309,7 +299,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 { DownloadInstallers, IconType.Download },
                 { UninstallSelection, IconType.Delete },
                 { PackageDetails, IconType.Info_Round },
-                { SharePackage, IconType.Share },
                 { IgnoreSelected, IconType.Pin },
                 { ManageIgnored, IconType.ClipboardList },
             };
@@ -349,7 +338,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 );
             UninstallSelection.Click += (_, _) =>
                 _ = MainApp.Operations.ConfirmAndUninstall(FilteredPackages.GetCheckedPackages());
-            SharePackage.Click += (_, _) => DialogHelper.SharePackage(SelectedItem);
         }
 
         protected override void WhenPackageCountUpdated()
