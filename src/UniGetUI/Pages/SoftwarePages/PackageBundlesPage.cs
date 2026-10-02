@@ -31,7 +31,6 @@ namespace UniGetUI.Interface.SoftwarePages
     {
         private BetterMenuItem? MenuInstallOptions;
         private BetterMenuItem? MenuInstall;
-        private BetterMenuItem? MenuShare;
         private BetterMenuItem? MenuDetails;
         private BetterMenuItem? MenuAsAdmin;
         private BetterMenuItem? MenuInteractive;
@@ -162,14 +161,6 @@ namespace UniGetUI.Interface.SoftwarePages
             menu.Items.Add(menuRemoveFromList);
             menu.Items.Add(new MenuFlyoutSeparator());
 
-            MenuShare = new()
-            {
-                Text = CoreTools.AutoTranslated("Share this package"),
-                IconName = IconType.Share,
-            };
-            MenuShare.Click += MenuShare_Invoked;
-            menu.Items.Add(MenuShare);
-
             MenuDetails = new()
             {
                 Text = CoreTools.AutoTranslated("Package details"),
@@ -281,10 +272,7 @@ namespace UniGetUI.Interface.SoftwarePages
                 );
             };
 
-            HelpButton.Click += (_, _) =>
-            {
-                MainApp.Instance.MainWindow.NavigationPage.ShowHelp();
-            };
+
             NewBundle.Click += async (s, e) => await AskForNewBundle();
 
             RemoveSelected.Click += (_, _) =>
@@ -391,7 +379,6 @@ namespace UniGetUI.Interface.SoftwarePages
                 || MenuInteractive is null
                 || MenuSkipHash is null
                 || MenuDetails is null
-                || MenuShare is null
                 || MenuInstall is null
                 || MenuInstallOptions is null
                 || MenuDownloadInstaller is null
@@ -409,7 +396,6 @@ namespace UniGetUI.Interface.SoftwarePages
             MenuSkipHash.IsEnabled =
                 IS_VALID && package.Manager.Capabilities.CanSkipIntegrityChecks;
             MenuDetails.IsEnabled = IS_VALID;
-            MenuShare.IsEnabled = IS_VALID;
             MenuInstall.IsEnabled = IS_VALID;
             MenuInstallOptions.IsEnabled = IS_VALID;
             MenuDownloadInstaller.IsEnabled =

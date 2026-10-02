@@ -141,13 +141,6 @@ namespace UniGetUI.Interface.SoftwarePages
 
             menu.Items.Add(new MenuFlyoutSeparator { Height = 5 });
 
-            BetterMenuItem menuShare = new()
-            {
-                Text = CoreTools.AutoTranslated("Share this package"),
-                IconName = IconType.Share,
-            };
-            menuShare.Click += MenuShare_Invoked;
-            menu.Items.Add(menuShare);
 
             BetterMenuItem menuDetails = new()
             {

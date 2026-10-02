@@ -208,7 +208,6 @@ namespace UniGetUI.Interface.SoftwarePages
             ContextMenu.Items.Add(menuSkipVersion);
             ContextMenu.Items.Add(menuPause);
             ContextMenu.Items.Add(new MenuFlyoutSeparator());
-            ContextMenu.Items.Add(menuShare);
             ContextMenu.Items.Add(MenuOpenInstallLocation);
             ContextMenu.Items.Add(menuDetails);
 
